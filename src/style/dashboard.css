@@ -1,0 +1,84 @@
+
+.Employee-img {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20%;
+}
+@import url(https://fonts.googleapis.com/css?family=Akronim);
+
+body {
+  background: rgb(0, 0, 0);
+}
+
+.fire {
+  margin: 50px auto;
+  margin-top: 15%;
+  width: 100%;
+  max-width: 1000px;
+  height: 200px;
+
+  background-position: center center;
+  background-size: 1000px 200px;
+  border-radius: 10px;
+  font-family: "Akronim";
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+.fire:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.Blazing {
+  display: inline-block;
+  margin: 0;
+
+  color: rgb(42, 42, 43);
+  font-size: 70px;
+  line-height: 80px;
+  min-width: 50px;
+  outline: none;
+  vertical-align: middle;
+
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
+    4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  animation: 2s Blazing infinite alternate linear;
+}
+
+@keyframes Blazing {
+  0% {
+    text-shadow: 0 3px 20px rgb(0, 153, 255), 0 0 20px rgb(0, 238, 255),
+      0 0 10px rgb(0, 26, 255), 0 0 0 rgb(165, 165, 152),
+      0 0 5px rgb(165, 165, 152), -2px -5px 5px rgb(165, 165, 152),
+      4px -10px 10px rgb(165, 165, 152);
+  }
+  25% {
+    text-shadow: 0 3px 20px rgb(0, 153, 255), 0 0 30px rgb(0, 238, 255),
+      0 0 20pxrgb (0, 26, 255), 0 0 5px rgb(165, 165, 152),
+      -2px -5px 5px rgb(165, 165, 152), 3px -10px 10px rgb(165, 165, 152),
+      -4px -15px 20px rgb(165, 165, 152);
+  }
+  50% {
+    text-shadow: 0 3px 20px rgb(0, 153, 255), 0 0 20px rgb(0, 238, 255),
+      0 -5px 10px rgb(0, 26, 255), -2px -5px 5px rgb(165, 165, 152),
+      3px -10px 10px rgb(165, 165, 152), -4px -15px 20px rgb(165, 165, 152),
+      2px -20px 30px rgba(255, 255, 0, 0.5);
+  }
+  75% {
+    text-shadow: 0 3px 20px rgb(0, 153, 255), 0 0 20px rgb(0, 238, 255),
+      0 -5px 10px rgb(0, 26, 255), 3px -5px 5px rgb(165, 165, 152),
+      -4px -10px 10px rgb(165, 165, 152), 2px -20px 30px rgba(255, 255, 0, 0.5),
+      0px -25px 40px rgba(255, 255, 0, 0);
+  }
+  100% {
+    text-shadow: 0 3px 20px rgb(0, 153, 255), 0 0 20px rgb(0, 238, 255),
+      0 0 10px rgb(0, 26, 255), 0 0 0 rgb(165, 165, 152),
+      0 0 5px rgb(165, 165, 152), -2px -5px 5px rgb(165, 165, 152),
+      4px -10px 10px rgb(165, 165, 152);
+  }
+}

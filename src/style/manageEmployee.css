@@ -1,0 +1,48 @@
+.overflow {
+  overflow-x: auto;
+}
+table {
+  margin-top: 5%;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding: 8px;
+  background: rgb(68, 68, 68);
+  color: white;
+}
+td {
+  text-align: left;
+  padding: 8px;
+  color: rgb(89, 89, 236);
+}
+td input {
+  text-align: left;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.iconedit {
+  color: green;
+}
+.icondelete {
+  color: red;
+}
+.saveicon {
+  color: #e10de9;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 5%;
+}
