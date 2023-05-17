@@ -32,8 +32,6 @@ const viewEmployee = () => {
       <div className="overflow">
         <table>
           <tr>
-            <th>Email</th>
-            <th>Password</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Date of Birth</th>
@@ -42,8 +40,6 @@ const viewEmployee = () => {
             <th>Address</th>
           </tr>
           <tr>
-            <td>Jill</td>
-            <td>Smith</td>
             <td>50</td>
             <td>50</td>
             <td>50</td>
@@ -52,8 +48,6 @@ const viewEmployee = () => {
             <td>50</td>
           </tr>
           <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
             <td>94</td>
             <td>94</td>
             <td>94</td>
@@ -64,8 +58,6 @@ const viewEmployee = () => {
           <tr>
             <td>Adam</td>
             <td>Johnson</td>
-            <td>67</td>
-            <td>67</td>
             <td>67</td>
             <td>67</td>
             <td>67</td>
