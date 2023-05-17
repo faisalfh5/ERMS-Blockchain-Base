@@ -8,6 +8,14 @@ const AddEmployee = () => {
         <form>
           <div className="user-box">
             <input type="text" name="" required="" />
+            <label>Employee ID</label>
+          </div>
+          <div className="user-box">
+            <input type="text" name="" required="" />
+            <label>Wallet Address</label>
+          </div>
+          <div className="user-box">
+            <input type="text" name="" required="" />
             <label>First Name</label>
           </div>
           <div className="user-box">
@@ -30,13 +38,15 @@ const AddEmployee = () => {
             <input type="address" name="" required="" />
             <label>Address</label>
           </div>
-          <a href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
+          <button>
+            <a href="#">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Add Employee
+            </a>
+          </button>
         </form>
       </div>
     </>

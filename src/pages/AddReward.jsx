@@ -17,35 +17,26 @@ const AddReward = () => {
               <option value="books">10</option>
             </select>
 
-            {/* <label>Reward Criteria &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <select>
-            <option value="books">5</option>
-            <option value="books">6</option>
-            <option value="books">7</option>
-            <option value="books">8</option>
-            <option value="books">9</option>
-            <option value="books">10</option>
-          </select> */}
-
             <form>
               <label>Reward Criteria</label>
 
               <textarea
-                style={{ marginLeft: "15%" }}
+                className="text-area"
                 id="w3review"
                 name="w3review"
                 rows="5"
-                cols="94"
+                cols="112"
               ></textarea>
             </form>
-
-            <a href="#">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Add Reward
-            </a>
+            <button>
+              <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Add Reward
+              </a>
+            </button>
           </form>
         </div>
       </div>

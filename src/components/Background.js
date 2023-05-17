@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Background = ({ children }) => {
-    return <div className='bg-white dark:bg-gray-800'>{children}</div>
-}
+  return <div className="bg-white dark:bg-gray-800">{children}</div>;
+};
 
-export default Background
+export default Background;

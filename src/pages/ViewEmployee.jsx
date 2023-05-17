@@ -6,7 +6,10 @@ const viewEmployee = () => {
       <div className="Card">
         <div className="CardInner">
           <div className="container">
-            <div className="Icon">
+            <div className="InputContainer">
+              <input placeholder="Search Employee..." />
+            </div>
+            <button className="Icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -22,10 +25,7 @@ const viewEmployee = () => {
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-            </div>
-            <div className="InputContainer">
-              <input placeholder="Search Employee..." />
-            </div>
+            </button>
           </div>
         </div>
       </div>
