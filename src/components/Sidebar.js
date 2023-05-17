@@ -39,7 +39,11 @@ const Sidebar = () => {
     { title: "Add Reward", path: "/addReward", src: <PlaylistAddIcon /> },
     { title: "View Reward", path: "/viewReward", src: <FaMoneyCheckAlt /> },
     { title: "Manage Reward", path: "/manageReward", src: <SiOpenaccess /> },
-    { title: "Reward Redemption", path: "/profile", src: <GiMoneyStack /> },
+    {
+      title: "Reward Redemption",
+      path: "/rewardRedemption",
+      src: <GiMoneyStack />,
+    },
   ];
 
   return (
