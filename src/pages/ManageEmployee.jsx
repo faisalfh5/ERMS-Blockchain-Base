@@ -8,9 +8,6 @@ const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [employeeData, setEmployeeData] = useState([
     {
-      id: 1,
-      email: "jill@example.com",
-      password: "password1",
       firstName: "Jill",
       lastName: "Smith",
       dateOfBirth: "1990-01-01",
@@ -19,9 +16,6 @@ const ManageEmployee = () => {
       address: "123 ABC Street",
     },
     {
-      id: 2,
-      email: "jill@example.com",
-      password: "password1",
       firstName: "Jill",
       lastName: "Smith",
       dateOfBirth: "1990-01-01",
@@ -30,9 +24,6 @@ const ManageEmployee = () => {
       address: "123 ABC Street",
     },
     {
-      id: 3,
-      email: "jill@example.com",
-      password: "password1",
       firstName: "Jill",
       lastName: "Smith",
       dateOfBirth: "1990-01-01",
@@ -77,8 +68,6 @@ const ManageEmployee = () => {
         <table>
           <thead>
             <tr>
-              <th>Email</th>
-              <th>Password</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Date of Birth</th>
@@ -91,32 +80,6 @@ const ManageEmployee = () => {
           <tbody>
             {employeeData.map((employee) => (
               <tr key={employee.id}>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="email"
-                      value={employee.email}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "email", event)
-                      }
-                    />
-                  ) : (
-                    <input type="email" value={employee.email} disabled />
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="password"
-                      value={employee.password}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "password", event)
-                      }
-                    />
-                  ) : (
-                    employee.password
-                  )}
-                </td>
                 <td>
                   {isEditing ? (
                     <input

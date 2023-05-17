@@ -7,14 +7,6 @@ const AddEmployee = () => {
         <h2>Add Employee</h2>
         <form>
           <div className="user-box">
-            <input type="email" name="" required="" />
-            <label>Email</label>
-          </div>
-          <div className="user-box">
-            <input type="password" name="" required="" />
-            <label>Password</label>
-          </div>
-          <div className="user-box">
             <input type="text" name="" required="" />
             <label>First Name</label>
           </div>
