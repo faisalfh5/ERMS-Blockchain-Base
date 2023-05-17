@@ -1,12 +1,15 @@
 import React from "react";
-
+import "../style/viewReward.css";
 const ViewReward = () => {
   return (
     <>
       <div className="Card">
         <div className="CardInner">
           <div className="container">
-            <div className="Icon">
+            <div className="InputContainer">
+              <input placeholder="Search Employee Reward" />
+            </div>
+            <button className="Icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -22,54 +25,27 @@ const ViewReward = () => {
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-            </div>
-            <div className="InputContainer">
-              <input placeholder="Search Employee..." />
-            </div>
+            </button>
           </div>
         </div>
       </div>
-      <div className="overflow">
+      <div className="overflowtab">
         <table>
           <tr>
-            <th>Email</th>
-            <th>Password</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Contact No</th>
-            <th>Age</th>
-            <th>Address</th>
+            <th>Reward Preference</th>
+            <th>Reward Criteria</th>
           </tr>
           <tr>
             <td>Jill</td>
             <td>Smith</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
           </tr>
           <tr>
             <td>Eve</td>
             <td>Jackson</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
           </tr>
           <tr>
             <td>Adam</td>
             <td>Johnson</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
           </tr>
         </table>
       </div>

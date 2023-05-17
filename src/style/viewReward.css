@@ -1,5 +1,7 @@
-.overflow {
+.overflowtab {
   overflow-x: auto;
+  width: 70%;
+  margin-left: 15%;
 }
 table {
   margin-top: 5%;
@@ -54,6 +56,7 @@ tr:nth-child(even) {
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius);
+  background-color: rgb(66, 66, 66);
   margin-right: 12px;
   box-shadow: -2px -2px 6px rgba(#fff, 0.6), 2px 2px 12px #c8d8e7;
 }
