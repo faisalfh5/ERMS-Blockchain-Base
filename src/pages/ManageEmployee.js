@@ -101,7 +101,7 @@ const ManageEmployee = () => {
                       }
                     />
                   ) : (
-                    employee.email
+                    <input type="email" value={employee.email} disabled />
                   )}
                 </td>
                 <td>

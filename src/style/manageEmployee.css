@@ -4,6 +4,7 @@
 table {
   margin-top: 5%;
   border-collapse: collapse;
+  width: 100%;
 }
 
 th {
@@ -15,6 +16,7 @@ th {
 td {
   text-align: left;
   padding: 8px;
+  color: rgb(89, 89, 236);
 }
 td input {
   text-align: left;
@@ -36,7 +38,7 @@ tr:nth-child(even) {
   color: red;
 }
 .saveicon {
-  color: #0d53e9;
+  color: #e10de9;
 }
 .icons {
   display: flex;

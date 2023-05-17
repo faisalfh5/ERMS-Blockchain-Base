@@ -1,5 +1,7 @@
 import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import AddEmployee from "./pages/AddEmployee";
 import ManageEmployee from "./pages/ManageEmployee";
@@ -14,6 +16,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addEmployee" element={<AddEmployee />} />
           <Route path="/manageEmployee" element={<ManageEmployee />} />
