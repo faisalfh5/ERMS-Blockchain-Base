@@ -7,6 +7,15 @@ const AddReward = () => {
         <div className="login-box1">
           <h2>Add Reward</h2>
           <form>
+            <label htmlFor=""> Add Reward Title</label>
+            <textarea
+              className="text-area"
+              type="text"
+              name="rewardtitle"
+              id="rewardtitle"
+              rows="1"
+              cols="1"
+            ></textarea>
             <label>Reward Preference </label>
             <select>
               <option value="books">5</option>
