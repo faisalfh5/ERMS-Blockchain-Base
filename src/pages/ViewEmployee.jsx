@@ -1,5 +1,5 @@
-import React from "react";
-import "../style/viewEmployee.css";
+import React from 'react';
+import '../style/viewEmployee.css';
 const viewEmployee = () => {
   return (
     <>
@@ -32,6 +32,7 @@ const viewEmployee = () => {
       <div className="overflow">
         <table>
           <tr>
+            <th>Wallet Address</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Date of Birth</th>
@@ -40,6 +41,7 @@ const viewEmployee = () => {
             <th>Address</th>
           </tr>
           <tr>
+            <td>address</td>
             <td>50</td>
             <td>50</td>
             <td>50</td>
@@ -48,6 +50,7 @@ const viewEmployee = () => {
             <td>50</td>
           </tr>
           <tr>
+            <td>address</td>
             <td>94</td>
             <td>94</td>
             <td>94</td>
@@ -56,6 +59,7 @@ const viewEmployee = () => {
             <td>94</td>
           </tr>
           <tr>
+            <td>address</td>
             <td>Adam</td>
             <td>Johnson</td>
             <td>67</td>

@@ -175,6 +175,7 @@ select {
 }
 .text-area {
   width: 100%;
+  margin-bottom: 4%;
   max-width: 800px;
   height: auto;
   padding: 10px;

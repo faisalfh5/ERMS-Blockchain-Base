@@ -1,5 +1,5 @@
-import React from "react";
-import "../style/viewReward.css";
+import React from 'react';
+import '../style/viewReward.css';
 const ViewReward = () => {
   return (
     <>
@@ -32,20 +32,28 @@ const ViewReward = () => {
       <div className="overflowtab">
         <table>
           <tr>
+            <th>Reward ID</th>
+            <th>Reward Title</th>
             <th>Reward Preference</th>
             <th>Reward Criteria</th>
           </tr>
           <tr>
-            <td>Jill</td>
+            <td>id </td>
+            <td>Best Employee by work</td>
+            <td>10</td>
             <td>Smith</td>
           </tr>
           <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
+            <td>id</td>
+            <td>Puntual of time</td>
+            <td>10</td>
+            <td>Show Criteria of Reward</td>
           </tr>
           <tr>
+            <td>id</td>
             <td>Adam</td>
-            <td>Johnson</td>
+            <td>10</td>
+            <td>Show Criteria of Reward</td>
           </tr>
         </table>
       </div>

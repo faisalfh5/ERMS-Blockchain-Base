@@ -7,6 +7,21 @@
   padding-right: 25px;
   padding-left: 25px;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
 
 .navbar-brand span {
   font-weight: bold;
@@ -80,7 +95,7 @@
 
 .custom_nav-container .navbar-toggler span::before,
 .custom_nav-container .navbar-toggler span::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   height: 100%;
@@ -96,18 +111,18 @@
   top: 10px;
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span::before,
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span::after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   top: 0;
@@ -612,6 +627,7 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 10px;
+  column-gap: 15px;
 }
 
 .info_section .info_social a {
@@ -722,3 +738,47 @@
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.why_section>div, .client_section>div {
+  display: block;
+}
+
+.why_section .why_container, .client_section .owl-carousel {
+  display: flex;
+  max-width: 90%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.why_section .why_container .box {
+  width: 32%;
+}
+
+
+.client_section .owl-carousel .item {
+  width: 49%;
+}
+.FM-logoS {
+  display: flex;
+  margin: 0 0 25px 0;
+}
+
+.info_section  .contact_link_box {
+  margin: 25px 0 0 0;
+}
+
+.info_section>div {
+  max-width: 90%;
+  margin: 15px auto 0 auto;
+}
+.footer_section>div {
+  max-width: 90%;
+}
+#HP-Service>div {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.noTactiveAdminDB, .noTactiveUserDB{
+  display: none;
+}

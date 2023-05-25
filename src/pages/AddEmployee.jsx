@@ -6,10 +6,10 @@ const AddEmployee = () => {
       <div class="login-box">
         <h2>Add Employee</h2>
         <form>
-          <div className="user-box">
+          {/* <div className="user-box">
             <input type="text" name="" required="" />
             <label>Employee ID</label>
-          </div>
+          </div> */}
           <div className="user-box">
             <input type="text" name="" required="" />
             <label>Wallet Address</label>
