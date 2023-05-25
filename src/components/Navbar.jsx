@@ -5,7 +5,13 @@ import '../style/home.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import ermslogo from '../assets/images/ermslogo.png';
+import metaMask from '../connectors/metaMask.js';
+
 const Navbar = () => {
+  const handlesubmit = async () => {
+    await metaMask();
+  };
+
   const handlechange = () => {
     // <AddEmployee />;
   };
@@ -60,7 +66,11 @@ const Navbar = () => {
                   Admin
                 </button>
                 <NavLink to="/">
-                  <button className="btn btn-primary font-weight-bold ml-4" type="submit">
+                  <button
+                    className="btn btn-primary font-weight-bold ml-4"
+                    type="submit"
+                    onClick={handlesubmit}
+                  >
                     Connect Wallet
                   </button>
                 </NavLink>
