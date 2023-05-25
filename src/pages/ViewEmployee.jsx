@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import "../style/viewEmployee.css";
+import { ViewAllEmployee } from "../Web3/contractFunction";
+
 const viewEmployee = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [employeeData, setEmployeeData] = useState([""]);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    console.log("here?");
+    const fetch = async () => {
+      await ViewAllEmployee(setEmployeeData);
+    };
+    fetch();
+  }, []);
+
   return (
     <>
       <div className="Card">
@@ -29,42 +44,49 @@ const viewEmployee = () => {
           </div>
         </div>
       </div>
-      <div className="overflow">
-        <table>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Contact No</th>
-            <th>Age</th>
-            <th>Address</th>
-          </tr>
-          <tr>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-            <td>94</td>
-          </tr>
-          <tr>
-            <td>Adam</td>
-            <td>Johnson</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-            <td>67</td>
-          </tr>
-        </table>
-      </div>
+      <form action="">
+        <div className="overflow">
+          <table>
+            <tr>
+              <th>Wallet Address</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Date of Birth</th>
+              <th>Contact No</th>
+              <th>Age</th>
+              <th>Address</th>
+            </tr>
+            {employeeData?.map((item) => {
+              return (
+                <tr>
+                  <td>{item?.wallet}</td>
+                  <td>{item?.fname}</td>
+                  <td>{item?.lname}</td>
+                  <td>{item?.dob}</td>
+                  <td>{item?.contact}</td>
+                  <td>{item?.age}</td>
+                  <td>{item?.empAddress}</td>
+                </tr>
+              );
+            })}
+
+            {/* {employeeData?.map((item) => {
+              return (
+                <tr>
+                  {console.log("item", item)}
+                  <td>{item[0]}</td>
+                  <td>{item[index]}</td>
+                  <td>{item?.lname}</td>
+                  <td>{item?.dob}</td>
+                  <td>{item?.contact}</td>
+                  <td>{item?.age}</td>
+                  <td>{item?.empAddress}</td> 
+                </tr>
+              );
+            })} */}
+          </table>
+        </div>
+      </form>
     </>
   );
 };

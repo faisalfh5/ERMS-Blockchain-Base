@@ -1,44 +1,47 @@
-import React, { useState } from "react";
-import "../style/manageEmployee.css";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SaveIcon from "@mui/icons-material/Save";
+import React, { useState } from 'react';
+import '../style/manageEmployee.css';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 
 const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [employeeData, setEmployeeData] = useState([
     {
       id: 1,
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
+      wallet: 'address',
+      email: 'jill@example.com',
+      password: 'password1',
+      firstName: 'Jill',
+      lastName: 'Smith',
+      dateOfBirth: '1990-01-01',
+      contactNo: '1234567890',
       age: 30,
-      address: "123 ABC Street",
+      address: '123 ABC Street',
     },
     {
       id: 2,
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
+      wallet: 'address',
+      email: 'jill@example.com',
+      password: 'password1',
+      firstName: 'Jill',
+      lastName: 'Smith',
+      dateOfBirth: '1990-01-01',
+      contactNo: '1234567890',
       age: 30,
-      address: "123 ABC Street",
+      address: '123 ABC Street',
     },
     {
       id: 3,
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
+      wallet: 'address',
+      email: 'jill@example.com',
+      password: 'password1',
+      firstName: 'Jill',
+      lastName: 'Smith',
+      dateOfBirth: '1990-01-01',
+      contactNo: '1234567890',
       age: 30,
-      address: "123 ABC Street",
+      address: '123 ABC Street',
     },
     // Add more employee data objects as needed
   ]);
@@ -52,7 +55,7 @@ const ManageEmployee = () => {
     const employee = employeeData.find((employee) => employee.id === id);
     if (employee) {
       // Perform save/update logic for the employee object
-      console.log("Saving data:", employee);
+      console.log('Saving data:', employee);
     }
 
     // After saving, reset the editing state
@@ -77,8 +80,7 @@ const ManageEmployee = () => {
         <table>
           <thead>
             <tr>
-              <th>Email</th>
-              <th>Password</th>
+              <th>Wallet Address</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Date of Birth</th>
@@ -94,27 +96,12 @@ const ManageEmployee = () => {
                 <td>
                   {isEditing ? (
                     <input
-                      type="email"
-                      value={employee.email}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "email", event)
-                      }
+                      type="text"
+                      value={employee.wallet}
+                      onChange={(event) => handleFieldChange(employee.id, 'wallet', event)}
                     />
                   ) : (
-                    <input type="email" value={employee.email} disabled />
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="password"
-                      value={employee.password}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "password", event)
-                      }
-                    />
-                  ) : (
-                    employee.password
+                    employee.wallet
                   )}
                 </td>
                 <td>
@@ -122,9 +109,7 @@ const ManageEmployee = () => {
                     <input
                       type="text"
                       value={employee.firstName}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "firstName", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'firstName', event)}
                     />
                   ) : (
                     employee.firstName
@@ -136,9 +121,7 @@ const ManageEmployee = () => {
                     <input
                       type="text"
                       value={employee.lastName}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "lastName", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'lastName', event)}
                     />
                   ) : (
                     employee.lastName
@@ -149,9 +132,7 @@ const ManageEmployee = () => {
                     <input
                       type="date"
                       value={employee.dateOfBirth}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "dateOfBirth", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'dateOfBirth', event)}
                     />
                   ) : (
                     employee.dateOfBirth
@@ -162,9 +143,7 @@ const ManageEmployee = () => {
                     <input
                       type="tel"
                       value={employee.contactNo}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "contactNo", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'contactNo', event)}
                     />
                   ) : (
                     employee.contactNo
@@ -176,9 +155,7 @@ const ManageEmployee = () => {
                     <input
                       type="number"
                       value={employee.age}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "age", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'age', event)}
                     />
                   ) : (
                     employee.age
@@ -190,9 +167,7 @@ const ManageEmployee = () => {
                     <input
                       type="text"
                       value={employee.address}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "address", event)
-                      }
+                      onChange={(event) => handleFieldChange(employee.id, 'address', event)}
                     />
                   ) : (
                     employee.address
@@ -201,10 +176,7 @@ const ManageEmployee = () => {
 
                 <td>
                   {isEditing ? (
-                    <SaveIcon
-                      className="saveicon"
-                      onClick={() => handleSave(employee.id)}
-                    />
+                    <SaveIcon className="saveicon" onClick={() => handleSave(employee.id)} />
                   ) : (
                     <div className="icons">
                       <EditIcon className="iconedit" onClick={handleEdit} />

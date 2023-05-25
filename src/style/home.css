@@ -7,6 +7,21 @@
   padding-right: 25px;
   padding-left: 25px;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
 
 .navbar-brand span {
   font-weight: bold;
@@ -80,7 +95,7 @@
 
 .custom_nav-container .navbar-toggler span::before,
 .custom_nav-container .navbar-toggler span::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   height: 100%;
@@ -96,18 +111,18 @@
   top: 10px;
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span::before,
+.custom_nav-container .navbar-toggler[aria-expanded='true'] span::after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   top: 0;
