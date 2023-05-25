@@ -1,11 +1,22 @@
-import { React, Navigator } from 'react';
+import { React, Navigator, useState } from 'react';
 
 import '../style/home.css';
 import '../style/home.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import { Link, animateScroll as scroll } from 'react-scroll';
+
 import ermslogo from '../assets/images/ermslogo.png';
+import metaMask from '../connectors/metaMask.js';
+
 const Navbar = () => {
+
+  const [setUser, setSelectedTab] = useState("userDashB");
+
+  const handlesubmit = async () => {
+    await metaMask();
+  };
+
   const handlechange = () => {
     // <AddEmployee />;
   };
@@ -43,24 +54,42 @@ const Navbar = () => {
                 <button className="btn btn-primary font-weight-bold" type="submit">
                   Feedback
                 </button> */}
-                <button className="btn btn-primary font-weight-bold" type="submit">
+                <Link 
+                  activeClass="active"
+                  to="HP-Service"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={700}
+                ><button className="btn btn-primary font-weight-bold" type="submit">
                   Services
-                </button>
-                <button
+                </button></Link>
+                <Link 
+                  activeClass="active"
+                  to="abt-usSM"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={700}
+                ><button
                   className="btn btn-primary font-weight-bold"
                   type="submit"
                   onClick={handlechange}
                 >
                   About Me
-                </button>
-                <button className="btn btn-primary font-weight-bold" type="submit">
+                </button></Link>
+                <button className={setUser === "userDashB" ? 'btn btn-primary font-weight-bold activeUserDB' : 'btn btn-primary font-weight-bold noTactiveUserDB'} type="submit">
                   User
                 </button>
-                <button className="btn btn-primary font-weight-bold" onClick={handlechange}>
+                <button className={setUser === "adminDashB" ? 'btn btn-primary font-weight-bold activeAdminDB' : 'btn btn-primary font-weight-bold noTactiveAdminDB'} onClick={handlechange}>
                   Admin
                 </button>
                 <NavLink to="/">
-                  <button className="btn btn-primary font-weight-bold ml-4" type="submit">
+                  <button
+                    className="btn btn-primary font-weight-bold ml-4"
+                    type="submit"
+                    onClick={handlesubmit}
+                  >
                     Connect Wallet
                   </button>
                 </NavLink>

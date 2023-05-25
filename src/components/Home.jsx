@@ -16,6 +16,7 @@ import team3 from '../assets/images/team-3.jpg';
 import team4 from '../assets/images/team-4.jpg';
 import client1 from '../assets/images/client1.jpg';
 import client2 from '../assets/images/client2.jpg';
+import ermslogo from '../assets/images/ermslogo.png';
 import Navbar from './Navbar';
 import FacebookIcon from '@mui/icons-material/Facebook';
 const Home = () => {
@@ -57,7 +58,7 @@ const Home = () => {
 
       {/* service section  */}
 
-      <section className="service_section layout_padding">
+      <section id='HP-Service' className="service_section layout_padding">
         <div className="service_container">
           <div className="heading_container heading_center">
             <h2>
@@ -124,7 +125,7 @@ const Home = () => {
 
       {/* about section */}
 
-      <section className="about_section layout_padding">
+      <section id='abt-usSM' className="about_section layout_padding">
         <div className="container">
           <div className="heading_container heading_center">
             {/* <h2>
@@ -143,20 +144,22 @@ const Home = () => {
             </div>
             <div className="col-md-6">
               <div className="detail-box">
-                <h3>We Are Finexo</h3>
+                <h3>About US</h3>
                 <p>
-                  There are many variations of passages of Lorem Ipsum available, but the majority
-                  have suffered alteration in some form, by injected humour, or randomised words
-                  which don't look even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
-                  middle of text. All
+                  Welcome to Employee Reward Management System! We are dedicated to providing
+                  a comprehensive platform that recognizes and rewards the hard work and 
+                  dedication of our employees.
                 </p>
                 <p>
-                  Molestiae odio earum non qui cumque provident voluptates, repellendus
-                  exercitationem, possimus at iste corrupti officiis unde alias eius ducimus
-                  reiciendis soluta eveniet. Nobis ullam ab omnis quasi expedita.
+                  we understand that motivated employees are the key to success. 
+                  We believe in creating a positive work environment that fosters growth, engagement, 
+                  and a sense of appreciation. Employee Reward Management System is designed to 
+                  enhance employee satisfaction and boost productivity by offering a transparent and efficient rewards program.
+                  With system, employees have the opportunity to earn rewards based on their performance, 
+                  achievements, and contributions. We value the unique skills and talents of each individual, 
+                  and our platform allows us to recognize and celebrate their exceptional work.
                 </p>
-                <a href="">Read More</a>
+                {/* <a href="">Read More</a> */}
               </div>
             </div>
           </div>
@@ -390,7 +393,82 @@ const Home = () => {
       <section className="info_section layout_padding2">
         <div className="container">
           <div className="row">
+            
             <div className="col-md-6 col-lg-3 info_col">
+              <div className="info_detail">
+                <div className='FM-logoS'>  
+                  <img src={ermslogo} alt="" className="logo-img" />
+                  <div className="logo ">
+                  <span>ERMS</span>
+                  </div>
+                </div>
+                <p>
+                  Data is securely added to the network through a decentralized consensus mechanism,
+                  ensuring immutability and transparency of information.
+                </p>
+                
+                <div className="info_social">
+                  <a href="">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-2 mx-auto info_col">
+              <div className="info_link_box">
+                <h4>Links</h4>
+                <div className="info_links">
+                  <a className="active" href="index.html">
+                    Home
+                  </a>
+                  <a className="" href="about.html">
+                    About
+                  </a>
+                  <a className="" href="service.html">
+                    Services
+                  </a>
+                  <a className="" href="why.html">
+                    Why Us
+                  </a>
+                  <a className="" href="team.html">
+                    Team
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-3 info_col ">
+              <h4>Subscribe</h4>
+              <form action="#">
+                <input type="text" placeholder="Enter email" />
+                <button type="submit">Subscribe</button>
+              </form>
+              <div className="info_contact">
+                <div className="contact_link_box">
+                  <a href="">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>Location</span>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-phone" aria-hidden="true"></i>
+                    <span>Call +01 12123545</span>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                    <span>abc@gmail.com</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* <div className="col-md-6 col-lg-3 info_col">
               <div className="info_contact">
                 <h4>Address</h4>
                 <div className="contact_link_box">
@@ -422,45 +500,7 @@ const Home = () => {
                   <i className="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
-            </div>
-            <div className="col-md-6 col-lg-3 info_col">
-              <div className="info_detail">
-                <h4>Info</h4>
-                <p>
-                  Data is securely added to the network through a decentralized consensus mechanism,
-                  ensuring immutability and transparency of information.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-2 mx-auto info_col">
-              <div className="info_link_box">
-                <h4>Links</h4>
-                <div className="info_links">
-                  <a className="active" href="index.html">
-                    Home
-                  </a>
-                  <a className="" href="about.html">
-                    About
-                  </a>
-                  <a className="" href="service.html">
-                    Services
-                  </a>
-                  <a className="" href="why.html">
-                    Why Us
-                  </a>
-                  <a className="" href="team.html">
-                    Team
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3 info_col ">
-              <h4>Subscribe</h4>
-              <form action="#">
-                <input type="text" placeholder="Enter email" />
-                <button type="submit">Subscribe</button>
-              </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
