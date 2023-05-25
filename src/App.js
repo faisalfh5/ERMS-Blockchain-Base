@@ -14,13 +14,7 @@ import Home from "./components/Home";
 
 /* userDashboard */
 import UserDashboard from "./UserDashboard/UserDashboard";
-import UserAddEmployee from "./UserDashboard/UserAddEmployee";
-import UserManageEmployee from "./UserDashboard/UserManageEmployee";
-import UserAssignReward from "./UserDashboard/UserAssignReward";
-import UserAddReward from "./UserDashboard/UserAddReward";
-import UserViewReward from "./UserDashboard/UserViewReward";
-import UserManageReward from "./UserDashboard/UserManageReward";
-import UserViewEmployee from "./UserDashboard/UserViewEmployee";
+
 import UserRewardRedemption from "./UserDashboard/UserRewardRedemption";
 import RewardHistory from "./UserDashboard/RewardHistory";
 
@@ -43,13 +37,7 @@ function App() {
 
           <Route path="/userdashboard" element={<UserDashboard />} />
           <Route path="/rewardHistory" element={<RewardHistory />} />
-          <Route path="/useraddEmployee" element={<UserAddEmployee />} />
-          <Route path="/usermanageEmployee" element={<UserManageEmployee />} />
-          <Route path="/userviewEmployee" element={<UserViewEmployee />} />
-          <Route path="/userassignReward" element={<UserAssignReward />} />
-          <Route path="/useraddReward" element={<UserAddReward />} />
-          <Route path="/userviewReward" element={<UserViewReward />} />
-          <Route path="/usermanageReward" element={<UserManageReward />} />
+
           <Route
             path="/userRewardRedemption"
             element={<UserRewardRedemption />}
