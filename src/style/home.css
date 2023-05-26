@@ -627,6 +627,7 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 10px;
+  column-gap: 15px;
 }
 
 .info_section .info_social a {
@@ -737,3 +738,47 @@
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.why_section>div, .client_section>div {
+  display: block;
+}
+
+.why_section .why_container, .client_section .owl-carousel {
+  display: flex;
+  max-width: 90%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.why_section .why_container .box {
+  width: 32%;
+}
+
+
+.client_section .owl-carousel .item {
+  width: 49%;
+}
+.FM-logoS {
+  display: flex;
+  margin: 0 0 25px 0;
+}
+
+.info_section  .contact_link_box {
+  margin: 25px 0 0 0;
+}
+
+.info_section>div {
+  max-width: 90%;
+  margin: 15px auto 0 auto;
+}
+.footer_section>div {
+  max-width: 90%;
+}
+#HP-Service>div {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.noTactiveAdminDB, .noTactiveUserDB{
+  display: none;
+}

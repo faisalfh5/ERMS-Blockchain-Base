@@ -1,5 +1,7 @@
-import { React, useState } from "react";
+
+import { React, Navigator, useState } from 'react';
 import { ethers } from "ethers";
+
 
 import "../style/home.css";
 import "../style/home.scss";
@@ -8,6 +10,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import ermslogo from "../assets/images/ermslogo.png";
 import metaMask from "../connectors/metaMask.js";
 
+
 const Navbar = () => {
   const [connected, toggleConnect] = useState(false);
   const [currAddress, updateAddress] = useState("0x");
@@ -15,6 +18,19 @@ const Navbar = () => {
   const handlesubmit = async () => {
     console.log("got here ?");
     await metaMask(updateAddress);
+
+import { Link, animateScroll as scroll } from 'react-scroll';
+
+import ermslogo from '../assets/images/ermslogo.png';
+import metaMask from '../connectors/metaMask.js';
+
+const Navbar = () => {
+
+  const [setUser, setSelectedTab] = useState("userDashB");
+
+  const handlesubmit = async () => {
+    await metaMask();
+
   };
 
   const handlechange = () => {
@@ -28,15 +44,15 @@ const Navbar = () => {
     updateAddress(addr);
   }
 
-  // eslint-disable-next-line no-undef
-  // useEffect(() => {
-  //   let val = window.ethereum.isConnected();
-  //   if (val) {
-  //     console.log("here");
-  //     getAddress();
-  //     toggleConnect(val);
-  //   }
-  // }, []);
+  eslint-disable-next-line no-undef
+  useEffect(() => {
+    let val = window.ethereum.isConnected();
+    if (val) {
+      console.log("here");
+      getAddress();
+      toggleConnect(val);
+    }
+  }, []);
   return (
     <header className="header_section">
       <div className="container-fluid">
@@ -78,14 +94,23 @@ const Navbar = () => {
                   className="btn btn-primary font-weight-bold"
                   type="submit"
                 >
+
                   Services
-                </button>
-                <button
+                </button></Link>
+                <Link 
+                  activeClass="active"
+                  to="abt-usSM"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={700}
+                ><button
                   className="btn btn-primary font-weight-bold"
                   type="submit"
                   onClick={handlechange}
                 >
                   About Me
+
                 </button>
                 <button
                   className="btn btn-primary font-weight-bold"
@@ -97,6 +122,7 @@ const Navbar = () => {
                   className="btn btn-primary font-weight-bold"
                   onClick={handlechange}
                 >
+
                   Admin
                 </button>
                 <NavLink to="/">
@@ -105,10 +131,14 @@ const Navbar = () => {
                     type="submit"
                     onClick={handlesubmit}
                   >
+
                     {connected ? "Connected" : "Connect Wallet"}
                     {/* {currAddress !== "0x"
                       ? currAddress?.substring(0, 15) + "..."
                       : ""} */}
+
+                    Connect Wallet
+
                   </button>
                 </NavLink>
               </form>
