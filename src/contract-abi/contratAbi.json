@@ -1,0 +1,440 @@
+{
+  "address": "0x85Bed5963460ddeb4648648ab5BE2B9fc8bfe930",
+
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "walletaddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_fname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_lname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_dob",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_contact",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_age",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "_address",
+          "type": "string"
+        }
+      ],
+      "name": "AddEmployee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_title",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_point",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_criteria",
+          "type": "string"
+        }
+      ],
+      "name": "AddReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_title",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_point",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_criteria",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_employeeWallet",
+          "type": "address"
+        }
+      ],
+      "name": "AssignReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_wallet",
+          "type": "address"
+        }
+      ],
+      "name": "DeleteEmployee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_rewardId",
+          "type": "uint256"
+        }
+      ],
+      "name": "DeleteReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_wallet",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_fname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_lname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_dob",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_age",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "_address",
+          "type": "string"
+        }
+      ],
+      "name": "UpdateEmployee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_title",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_point",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_criteria",
+          "type": "string"
+        }
+      ],
+      "name": "UpdateReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "assignrewards",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "point",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "criteria",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "employees",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "fname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "lname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "dob",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "contact",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "age",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "Address",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GetAllEmployees",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "wallet",
+          "type": "address[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "fname",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "lname",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "dob",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "contact",
+          "type": "string[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "age",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "empAddress",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GetAllReward",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "title",
+          "type": "string[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "point",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "criteria",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_wallet",
+          "type": "address"
+        }
+      ],
+      "name": "GetEmployee",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "fname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "lname",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "dob",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "contact",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "age",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "Address",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "GetReward",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "point",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "criteria",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}

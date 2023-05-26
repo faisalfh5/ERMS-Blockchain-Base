@@ -2,7 +2,7 @@
 @layer base {
   html {
     @apply text-gray-800;
-  } 
+  }
 }
 
 @tailwind components;

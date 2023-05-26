@@ -1,9 +1,9 @@
-import React from 'react';
-import '../style/assignReward.css';
+import React from "react";
+import "../style/assignReward.css";
 const AssignReward = () => {
   return (
     <div className="dark">
-      <div className="login-box1">
+      <div className="login-box3">
         <h2>Assign Reward</h2>
         <form>
           <label htmlFor=""> Add Reward Title</label>

@@ -1,17 +1,17 @@
-.login-box1 {
+.login-box3 {
   position: absolute;
-  top: 52%;
-  left: 60%;
-  width: 70%;
+  top: 60%;
+  left: 63%;
+  width: 60%;
   padding: 40px;
   transform: translate(-50%, -50%);
   background: rgb(243, 244, 246);
-  box-sizing: border-box;
+
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 }
 
-.login-box1 h2 {
+.login-box3 h2 {
   margin: 0 0 30px;
   padding: 0;
   color: #000000;
@@ -20,11 +20,11 @@
   font-weight: bold;
 }
 
-.login-box1 .user-box {
+.login-box3 .user-box {
   position: relative;
 }
 
-.login-box1 .user-box input {
+.login-box3 .user-box input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -35,7 +35,7 @@
   outline: none;
   background: transparent;
 }
-.login-box1 .user-box label {
+.login-box3 .user-box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,15 +46,15 @@
   transition: 0.5s;
 }
 
-.login-box1 .user-box input:focus ~ label,
-.login-box1 .user-box input:valid ~ label {
+.login-box3 .user-box input:focus ~ label,
+.login-box3 .user-box input:valid ~ label {
   top: -20px;
   left: 0;
   color: #000000;
   font-size: 12px;
 }
 
-.login-box1 form a {
+.login-box3 form a {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -68,7 +68,7 @@
   letter-spacing: 4px;
 }
 
-.login-box1 a:hover {
+.login-box3 a:hover {
   background: #000000;
   color: #fff;
   border-radius: 5px;
@@ -76,12 +76,12 @@
     0 0 100px #000000;
 }
 
-.login-box1 a span {
+.login-box3 a span {
   position: absolute;
   display: block;
 }
 
-.login-box1 a span:nth-child(1) {
+.login-box3 a span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -100,7 +100,7 @@
   }
 }
 
-.login-box1 a span:nth-child(2) {
+.login-box3 a span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -120,7 +120,7 @@
   }
 }
 
-.login-box1 a span:nth-child(3) {
+.login-box3 a span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -140,7 +140,7 @@
   }
 }
 
-.login-box1 a span:nth-child(4) {
+.login-box3 a span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;

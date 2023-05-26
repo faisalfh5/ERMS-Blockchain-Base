@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-left: 20%;
+  margin-top: 15%;
 }
 @import url(https://fonts.googleapis.com/css?family=Akronim);
 
@@ -13,11 +14,10 @@ body {
 
 .fire {
   margin: 50px auto;
-  margin-top: 15%;
+  margin-top: 25%;
   width: 100%;
   max-width: 1000px;
   height: 200px;
-
   background-position: center center;
   background-size: 1000px 200px;
   border-radius: 10px;

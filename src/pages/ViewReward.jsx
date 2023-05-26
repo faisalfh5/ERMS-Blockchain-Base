@@ -1,5 +1,5 @@
-import React from 'react';
-import '../style/viewReward.css';
+import React from "react";
+import "../style/viewReward.css";
 const ViewReward = () => {
   return (
     <>
@@ -38,19 +38,19 @@ const ViewReward = () => {
             <th>Reward Criteria</th>
           </tr>
           <tr>
-            <td>id </td>
+            <td>1</td>
             <td>Best Employee by work</td>
             <td>10</td>
             <td>Smith</td>
           </tr>
           <tr>
-            <td>id</td>
+            <td>2</td>
             <td>Puntual of time</td>
             <td>10</td>
             <td>Show Criteria of Reward</td>
           </tr>
           <tr>
-            <td>id</td>
+            <td>3</td>
             <td>Adam</td>
             <td>10</td>
             <td>Show Criteria of Reward</td>

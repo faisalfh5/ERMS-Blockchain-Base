@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div id="myDiv" className="dark fire" style={{ display: "none" }}>
+      {/* <div id="myDiv" className="dark fire" style={{ display: "none" }}>
         <h1 className="Blazing">
           Welcome to <br /> Employee Management Reward System
         </h1>
@@ -28,7 +28,7 @@ const Dashboard = () => {
         <div className="Employee-img">
           <img src={Employee} alt={Employee} />
         </div>
-      )}
+      )} */}
     </>
   );
 };
