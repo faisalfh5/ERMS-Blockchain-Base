@@ -49,13 +49,27 @@ export const addEmployee = async (
 
 export const ViewAllEmployee = async (setEmployeeData) => {
   try {
+    console.log("idhr a raha ?");
     const mintInstance = await getProviderOrSigner();
     console.log("provider", mintInstance);
 
     const trans = await mintInstance.GetAllEmployees();
     console.log("trans", trans);
     setEmployeeData(trans);
-    await trans.wait();
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const ViewEmployee = async (employee, setEmployeeData) => {
+  try {
+    console.log("idhr a raha ?");
+    const mintInstance = await getProviderOrSigner();
+    console.log("provider", mintInstance);
+
+    const trans = await mintInstance.GetEmployee(employee);
+    console.log("trans", trans);
+    setEmployeeData(trans);
   } catch (error) {
     console.log("Something went wrong to intetract with smart contract");
   }

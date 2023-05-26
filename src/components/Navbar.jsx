@@ -1,20 +1,42 @@
-import { React, Navigator } from 'react';
+import { React, useState } from "react";
+import { ethers } from "ethers";
 
-import '../style/home.css';
-import '../style/home.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
+import "../style/home.css";
+import "../style/home.scss";
+import { NavLink, useNavigate } from "react-router-dom";
 
-import ermslogo from '../assets/images/ermslogo.png';
-import metaMask from '../connectors/metaMask.js';
+import ermslogo from "../assets/images/ermslogo.png";
+import metaMask from "../connectors/metaMask.js";
 
 const Navbar = () => {
+  const [connected, toggleConnect] = useState(false);
+  const [currAddress, updateAddress] = useState("0x");
+
   const handlesubmit = async () => {
-    await metaMask();
+    console.log("got here ?");
+    await metaMask(updateAddress);
   };
 
   const handlechange = () => {
     // <AddEmployee />;
   };
+
+  async function getAddress() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const addr = await signer.getAddress();
+    updateAddress(addr);
+  }
+
+  // eslint-disable-next-line no-undef
+  // useEffect(() => {
+  //   let val = window.ethereum.isConnected();
+  //   if (val) {
+  //     console.log("here");
+  //     getAddress();
+  //     toggleConnect(val);
+  //   }
+  // }, []);
   return (
     <header className="header_section">
       <div className="container-fluid">
@@ -40,7 +62,10 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav  ">
               <form class="form-inline">
-                <button className="btn btn-primary font-weight-bold" type="submit">
+                <button
+                  className="btn btn-primary font-weight-bold"
+                  type="submit"
+                >
                   Contact Details
                 </button>
                 {/* <button className="btn btn-primary font-weight-bold" type="submit">
@@ -49,7 +74,10 @@ const Navbar = () => {
                 <button className="btn btn-primary font-weight-bold" type="submit">
                   Feedback
                 </button> */}
-                <button className="btn btn-primary font-weight-bold" type="submit">
+                <button
+                  className="btn btn-primary font-weight-bold"
+                  type="submit"
+                >
                   Services
                 </button>
                 <button
@@ -59,10 +87,16 @@ const Navbar = () => {
                 >
                   About Me
                 </button>
-                <button className="btn btn-primary font-weight-bold" type="submit">
+                <button
+                  className="btn btn-primary font-weight-bold"
+                  type="submit"
+                >
                   User
                 </button>
-                <button className="btn btn-primary font-weight-bold" onClick={handlechange}>
+                <button
+                  className="btn btn-primary font-weight-bold"
+                  onClick={handlechange}
+                >
                   Admin
                 </button>
                 <NavLink to="/">
@@ -71,7 +105,10 @@ const Navbar = () => {
                     type="submit"
                     onClick={handlesubmit}
                   >
-                    Connect Wallet
+                    {connected ? "Connected" : "Connect Wallet"}
+                    {/* {currAddress !== "0x"
+                      ? currAddress?.substring(0, 15) + "..."
+                      : ""} */}
                   </button>
                 </NavLink>
               </form>

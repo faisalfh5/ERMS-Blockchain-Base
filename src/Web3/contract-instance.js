@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import web3Modal from "web3modal";
+import Web3Modal from "web3modal";
 import contratAbi from "../contract-abi/contratAbi.json";
 // getting contract abi and address
 
@@ -17,7 +17,7 @@ const fetchContract = async (signerorprovider) => {
 const getProviderOrSigner = async (needSigner = false) => {
   // Connect to Metamask
   // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
-  const web3modal = new web3Modal();
+  const web3modal = new Web3Modal();
 
   const connection = await web3modal.connect();
   const provider = new ethers.providers.Web3Provider(connection);
@@ -35,6 +35,7 @@ const getProviderOrSigner = async (needSigner = false) => {
     return instance;
   }
   const instance = fetchContract(provider);
+  console.log("got provider", instance);
   return instance;
 };
 
