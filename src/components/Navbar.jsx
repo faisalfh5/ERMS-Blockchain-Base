@@ -141,7 +141,7 @@ const Navbar = () => {
                     type="submit"
                     onClick={handlesubmit}
                   >
-                    Connect Wallet
+                    {walletAddress.slice(0, 5)} Connect Wallet
                   </button>
                 </NavLink>
               </form>

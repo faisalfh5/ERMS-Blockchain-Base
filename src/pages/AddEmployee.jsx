@@ -106,6 +106,16 @@ const AddEmployee = () => {
             />
             <label>Address</label>
           </div>
+          <div className="user-box">
+            <input
+              type="text"
+              name="lname"
+              value={employeedata?.lname}
+              required=""
+              onChange={handlechange}
+            />
+            <label>Employee Position</label>
+          </div>
           <button onClick={handlesubmit}>
             <a href="#">
               <span></span>

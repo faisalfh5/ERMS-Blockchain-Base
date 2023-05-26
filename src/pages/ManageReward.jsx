@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
-import '../style/manageReward.css';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SaveIcon from '@mui/icons-material/Save';
+import React, { useState } from "react";
+import "../style/manageReward.css";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
 
 const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [employeeData, setEmployeeData] = useState([
     {
       id: 1,
-      rewardid: 'id',
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
+      rewardid: "id",
+      rewardtitle: "This is your reward title",
+      rewardpreference: "10",
+      rewarddifficulty: "10",
+      rewardcriteria: "criteria details",
     },
     {
       id: 2,
-      rewardid: 'id',
-
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
+      rewardid: "id",
+      rewarddifficulty: "10",
+      rewardtitle: "This is your reward title",
+      rewardpreference: "10",
+      rewardcriteria: "criteria details",
     },
     {
       id: 3,
-      rewardid: 'id',
-
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
+      rewardid: "id",
+      rewarddifficulty: "10",
+      rewardtitle: "This is your reward title",
+      rewardpreference: "10",
+      rewardcriteria: "criteria details",
     },
     // Add more employee data objects as needed
   ]);
@@ -42,7 +43,7 @@ const ManageEmployee = () => {
     const employee = employeeData.find((employee) => employee.id === id);
     if (employee) {
       // Perform save/update logic for the employee object
-      console.log('Saving data:', employee);
+      console.log("Saving data:", employee);
     }
 
     // After saving, reset the editing state
@@ -69,7 +70,8 @@ const ManageEmployee = () => {
             <tr>
               <th>Reward ID</th>
               <th>Reward Title</th>
-              <th>Reward Preference</th>
+              <th>Reward Points</th>
+              <th>Reward Difficulty</th>
               <th>Reward Criteria</th>
               <th>Actions</th>
             </tr>
@@ -82,7 +84,9 @@ const ManageEmployee = () => {
                     <input
                       type="text"
                       value={employee.rewardid}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
+                      onChange={(event) =>
+                        handleFieldChange(employee.id, "rewardcriteria", event)
+                      }
                     />
                   ) : (
                     employee.rewardid
@@ -94,7 +98,9 @@ const ManageEmployee = () => {
                     <input
                       type="text"
                       value={employee.rewardtitle}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
+                      onChange={(event) =>
+                        handleFieldChange(employee.id, "rewardcriteria", event)
+                      }
                     />
                   ) : (
                     employee.rewardtitle
@@ -107,7 +113,11 @@ const ManageEmployee = () => {
                       type="text"
                       value={employee.rewardpreference}
                       onChange={(event) =>
-                        handleFieldChange(employee.id, 'rewardpreference', event)
+                        handleFieldChange(
+                          employee.id,
+                          "rewardpreference",
+                          event
+                        )
                       }
                     />
                   ) : (
@@ -118,8 +128,27 @@ const ManageEmployee = () => {
                   {isEditing ? (
                     <input
                       type="text"
+                      value={employee.rewarddifficulty}
+                      onChange={(event) =>
+                        handleFieldChange(
+                          employee.id,
+                          "rewarddifficulty",
+                          event
+                        )
+                      }
+                    />
+                  ) : (
+                    employee.rewarddifficulty
+                  )}
+                </td>
+                <td>
+                  {isEditing ? (
+                    <input
+                      type="text"
                       value={employee.rewardcriteria}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
+                      onChange={(event) =>
+                        handleFieldChange(employee.id, "rewardcriteria", event)
+                      }
                     />
                   ) : (
                     employee.rewardcriteria
@@ -128,7 +157,10 @@ const ManageEmployee = () => {
 
                 <td>
                   {isEditing ? (
-                    <SaveIcon className="saveicon" onClick={() => handleSave(employee.id)} />
+                    <SaveIcon
+                      className="saveicon"
+                      onClick={() => handleSave(employee.id)}
+                    />
                   ) : (
                     <div className="icons1">
                       <EditIcon className="iconedit" onClick={handleEdit} />

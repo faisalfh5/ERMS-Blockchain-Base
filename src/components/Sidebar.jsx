@@ -24,7 +24,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   const Menus = [
-    { title: "Add Employee", path: "/addEmployee", src: <CgProfile /> },
+    { title: "Add Employees", path: "/addEmployee", src: <CgProfile /> },
     {
       title: "View Employee",
       path: "/viewEmployee",
@@ -40,13 +40,13 @@ const Sidebar = () => {
       path: "/assignReward",
       src: <AccountBalanceIcon />,
     },
-    { title: "Add Reward", path: "/addReward", src: <PlaylistAddIcon /> },
+    { title: "Add Rewards", path: "/addReward", src: <PlaylistAddIcon /> },
     { title: "View Reward", path: "/viewReward", src: <FaMoneyCheckAlt /> },
     { title: "Manage Reward", path: "/manageReward", src: <SiOpenaccess /> },
     { title: "Give Reward", path: "/giveReward", src: <MdAddchart /> },
     {
       title: "Reward Redemption",
-      path: "/rewardRedemption",
+      path: "/rewardRedumption",
       src: <GiMoneyStack />,
     },
   ];

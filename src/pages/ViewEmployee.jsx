@@ -55,6 +55,7 @@ const viewEmployee = () => {
               <th>Contact No</th>
               <th>Age</th>
               <th>Address</th>
+              <th>Employee Position</th>
             </tr>
             {employeeData?.map((item) => {
               return (
@@ -66,6 +67,7 @@ const viewEmployee = () => {
                   <td>{item?.contact}</td>
                   <td>{item?.age}</td>
                   <td>{item?.empAddress}</td>
+                  <td>{item?.empposition}</td>
                 </tr>
               );
             })}

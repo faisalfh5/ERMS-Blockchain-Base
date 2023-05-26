@@ -34,12 +34,14 @@ const ViewReward = () => {
           <tr>
             <th>Reward ID</th>
             <th>Reward Title</th>
-            <th>Reward Preference</th>
+            <th>Reward Points</th>
+            <th>Reward Difficulty</th>
             <th>Reward Criteria</th>
           </tr>
           <tr>
             <td>1</td>
             <td>Best Employee by work</td>
+            <td>10</td>
             <td>10</td>
             <td>Smith</td>
           </tr>
@@ -47,11 +49,13 @@ const ViewReward = () => {
             <td>2</td>
             <td>Puntual of time</td>
             <td>10</td>
+            <td>10</td>
             <td>Show Criteria of Reward</td>
           </tr>
           <tr>
             <td>3</td>
             <td>Adam</td>
+            <td>10</td>
             <td>10</td>
             <td>Show Criteria of Reward</td>
           </tr>
