@@ -16,7 +16,16 @@ const AddReward = () => {
               rows="1"
               cols="1"
             ></textarea>
-            <label>Reward Preference </label>
+            <label>Reward Difficulty &nbsp;</label>
+            <select>
+              <option value="books">1</option>
+              <option value="books">2</option>
+              <option value="books">3</option>
+              <option value="books">4</option>
+              <option value="books">5</option>
+            </select>
+            <br />
+            <label>Reward Points &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <select>
               <option value="books">5</option>
               <option value="books">6</option>

@@ -160,10 +160,7 @@ const Navbar = () => {
                     type="submit"
                     onClick={handlesubmit}
                   >
-                    {connected ? "Connected" : "Connect Wallet"}
-                    {/* {currAddress !== "0x"
-                      ? currAddress?.substring(0, 15) + "..."
-                      : ""} */}
+                    {walletAddress.slice(0, 5)} Connect Wallet
                   </button>
                 </NavLink>
               </form>

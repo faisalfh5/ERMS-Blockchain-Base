@@ -76,6 +76,7 @@ const viewEmployee = () => {
                 <th>Contact No</th>
                 <th>Age</th>
                 <th>Address</th>
+                <th>Employee Position</th>
               </tr>
             </thead>
             {datashow === true && employee.length !== 0 ? (
@@ -88,6 +89,7 @@ const viewEmployee = () => {
                   <td>{singleemployee?.contact}</td>
                   <td>{singleemployee?.age}</td>
                   <td>{singleemployee?.Address}</td>
+                  <td>{singleemployee?.empposition}</td>
                 </tr>
               </tbody>
             ) : (

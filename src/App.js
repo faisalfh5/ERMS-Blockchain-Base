@@ -8,15 +8,15 @@ import AddReward from "./pages/AddReward";
 import ViewReward from "./pages/ViewReward";
 import ManageReward from "./pages/ManageReward";
 import ViewEmployee from "./pages/ViewEmployee";
-import RewardRedemption from "./pages/RewardRedemption";
 import GiveReward from "./pages/GiveReward";
+import RewardRedumption from "./pages/RewardRedemption";
 import Home from "./components/Home";
 
 /* userDashboard */
 import UserDashboard from "./UserDashboard/UserDashboard";
-
-import UserRewardRedemption from "./UserDashboard/UserRewardRedemption";
+import RewardRedemption from "./pages/RewardRedemption";
 import RewardHistory from "./UserDashboard/RewardHistory";
+import UserViewReward from "./UserDashboard/UserViewReward";
 
 function App() {
   return (
@@ -33,15 +33,12 @@ function App() {
           <Route path="/viewReward" element={<ViewReward />} />
           <Route path="/manageReward" element={<ManageReward />} />
           <Route path="/giveReward" element={<GiveReward />} />
-          <Route path="/rewardRedemption" element={<RewardRedemption />} />
+          <Route path="/rewardRedumption" element={<RewardRedumption />} />
 
           <Route path="/userdashboard" element={<UserDashboard />} />
           <Route path="/rewardHistory" element={<RewardHistory />} />
-
-          <Route
-            path="/userRewardRedemption"
-            element={<UserRewardRedemption />}
-          />
+          <Route path="/userRewardRedemption" element={<RewardRedemption />} />
+          <Route path="/userviewReward" element={<UserViewReward />} />
         </Routes>
       </Layout>
       <Routes>
