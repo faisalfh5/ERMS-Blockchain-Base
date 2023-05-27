@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import "../style/viewReward.css";
-import { ViewAllGivenReward } from "../Web3/contractFunction";
+import { ViewAllAssignReward } from "../Web3/contractFunction";
 
-const RewardRedemption = () => {
+const ViewAssignReward = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const [walletAddress, setWalletAddress] = useState("");
 
@@ -23,7 +23,7 @@ const RewardRedemption = () => {
     const fetch = async () => {
       const addr = await getAddress();
       setWalletAddress(addr);
-      const tx = await ViewAllGivenReward(walletAddress);
+      const tx = await ViewAllAssignReward(walletAddress);
       setEmployeeData(tx);
     };
     fetch();
@@ -38,21 +38,19 @@ const RewardRedemption = () => {
               <th>Reward ID</th>
               <th>Reward Title</th>
               <th>Reward Points</th>
-              <th>Reward Diffulculty</th>
-              <th>Criteria</th>
-              <th>Status Redemption</th>
+              <th>Reward Difficulty</th>
+              <th>Reward Criteria</th>
             </tr>
           </thead>
 
           <tbody>
-            {employeeData?.map((_, index) => (
+            {employeeData?.map((_, index = 0) => (
               <tr key={index}>
-                {/* <td>{employeeData?.rewardid[index]}</td> */}
+                <td>{employeeData?.rewardid[index]}</td>
                 <td>{employeeData?.title[index]}</td>
                 <td>{employeeData?.points[index]}</td>
                 <td>{employeeData?.difficulty[index]}</td>
                 <td>{employeeData?.criterias[index]}</td>
-                <td>{index < 2 ? "Redeem" : ""}</td>
               </tr>
             ))}
           </tbody>
@@ -62,4 +60,4 @@ const RewardRedemption = () => {
   );
 };
 
-export default RewardRedemption;
+export default ViewAssignReward;

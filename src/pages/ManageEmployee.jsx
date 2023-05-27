@@ -1,61 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/manageEmployee.css";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
+import { ViewAllEmployee } from "../Web3/contractFunction";
 
 const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [employeeData, setEmployeeData] = useState([
-    {
-      id: 1,
-      wallet: "address",
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
-      age: 30,
-      address: "123 ABC Street",
-      employeePosition: "123 ABC Street",
-    },
-    {
-      id: 2,
-      wallet: "address",
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
-      age: 30,
-      address: "123 ABC Street",
-      employeePosition: "123 ABC Street",
-    },
-    {
-      id: 3,
-      wallet: "address",
-      email: "jill@example.com",
-      password: "password1",
-      firstName: "Jill",
-      lastName: "Smith",
-      dateOfBirth: "1990-01-01",
-      contactNo: "1234567890",
-      age: 30,
-      address: "123 ABC Street",
-      employeePosition: "123 ABC Street",
-    },
-    // Add more employee data objects as needed
-  ]);
+  const [allempdata, setAllEmpData] = useState([]);
+  const [employeeData, setEmployeeData] = useState([]);
+  const [valuestate, setValueState] = useState({
+    fname: [],
+    lname: "",
+  });
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = (id) => {
+  const handleSave = (wallet) => {
     // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
+    const employee = employeeData.find(
+      (employee) => employee.wallet === wallet
+    );
     if (employee) {
       // Perform save/update logic for the employee object
       console.log("Saving data:", employee);
@@ -65,17 +32,30 @@ const ManageEmployee = () => {
     setIsEditing(false);
   };
 
-  const handleFieldChange = (id, fieldName, event) => {
-    // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
-    if (employee) {
-      // Update the specific field value for the employee object
-      employee[fieldName] = event.target.value;
-
-      // Update the state with the modified employee data
-      setEmployeeData([...employeeData]);
-    }
+  const handleFieldChange = (wallet, fieldName, event) => {
+    console.log("handle change wallet", wallet);
+    console.log("chnage event", event);
+    console.log("valuestate", valuestate);
   };
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    const fetch = async () => {
+      const tx = await ViewAllEmployee(setAllEmpData);
+      console.log("tx wallet", tx?.wallet);
+      setEmployeeData(
+        tx
+        // wallet: [...tx?.wallet],
+        // contact: [...tx?.contact],
+        // age: [...tx?.age],
+        // dob: [...tx?.dob],
+        // empAddress: [...tx?.empAddress],
+        // lname: [...tx?.lname],
+        // fname: [...tx?.fname],
+      );
+    };
+    fetch();
+  }, []);
+  console.log("employeeData", employeeData);
 
   return (
     <>
@@ -95,32 +75,45 @@ const ManageEmployee = () => {
             </tr>
           </thead>
           <tbody>
-            {employeeData.map((employee) => (
-              <tr key={employee.id}>
+            {employeeData?.wallet?.map((_, index) => (
+              <tr key={index}>
                 <td>
                   {isEditing ? (
                     <input
                       type="text"
-                      value={employee.wallet}
+                      name="wallet"
+                      value={employeeData.wallet?.[index]}
                       onChange={(event) =>
-                        handleFieldChange(employee.id, "wallet", event)
+                        handleFieldChange(
+                          employeeData?.wallet?.[index],
+                          "wallet",
+                          event.target.value
+                        )
                       }
                     />
                   ) : (
-                    employee.wallet
+                    employeeData?.wallet?.[index]
                   )}
                 </td>
                 <td>
                   {isEditing ? (
                     <input
                       type="text"
-                      value={employee.firstName}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, "firstName", event)
-                      }
+                      name="fname"
+                      value={valuestate?.fname?.[index]}
+                      onChange={(event) => {
+                        handleFieldChange(
+                          employeeData?.fname?.[index],
+                          "firstName",
+                          setValueState({
+                            ...valuestate,
+                            fname: event.target.value,
+                          })
+                        );
+                      }}
                     />
                   ) : (
-                    employee.firstName
+                    employeeData?.fname?.[index]
                   )}
                 </td>
 
@@ -128,16 +121,23 @@ const ManageEmployee = () => {
                   {isEditing ? (
                     <input
                       type="text"
-                      value={employee.lastName}
+                      value={valuestate.lname}
                       onChange={(event) =>
-                        handleFieldChange(employee.id, "lastName", event)
+                        handleFieldChange(
+                          employeeData?.wallet?.[index],
+                          "lastName",
+                          setValueState({
+                            ...valuestate,
+                            lname: event.target.value,
+                          })
+                        )
                       }
                     />
                   ) : (
-                    employee.lastName
+                    employeeData?.lname?.[index]
                   )}
                 </td>
-                <td>
+                {/*<td>
                   {isEditing ? (
                     <input
                       type="date"
@@ -190,34 +190,21 @@ const ManageEmployee = () => {
                   ) : (
                     employee.address
                   )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={employee.employeePosition}
-                      onChange={(event) =>
-                        handleFieldChange(
-                          employee.id,
-                          "employeePosition",
-                          event
-                        )
-                      }
-                    />
-                  ) : (
-                    employee.employeePosition
-                  )}
-                </td>
+                </td> */}
+
                 <td>
                   {isEditing ? (
                     <SaveIcon
                       className="saveicon"
-                      onClick={() => handleSave(employee.id)}
+                      onClick={() => handleSave(employeeData.wallet)}
                     />
                   ) : (
                     <div className="icons">
-                      <EditIcon className="iconedit" onClick={handleEdit} />
-                      <DeleteIcon className="icondelete" />
+                      <EditIcon
+                        className="iconedit cursor-pointer"
+                        onClick={handleEdit}
+                      />
+                      <DeleteIcon className="icondelete cursor-pointer" />
                     </div>
                   )}
                 </td>

@@ -103,25 +103,11 @@ const viewEmployee = () => {
                     <td>{employeeData?.contact[index]}</td>
                     <td>{employeeData?.age[index]}</td>
                     <td>{employeeData?.empAddress[index]}</td>
+                    <td>{singleemployee?.empposition}</td>
                   </tr>
                 ))}
               </tbody>
             )}
-
-            {/* {employeeData?.map((item) => {
-              return (
-                <tr>
-                  {console.log("item", item)}
-                  <td>{item[0]}</td>
-                  <td>{item[index]}</td>
-                  <td>{item?.lname}</td>
-                  <td>{item?.dob}</td>
-                  <td>{item?.contact}</td>
-                  <td>{item?.age}</td>
-                  <td>{item?.empAddress}</td> 
-                </tr>
-              );
-            })} */}
           </table>
         </div>
       </form>

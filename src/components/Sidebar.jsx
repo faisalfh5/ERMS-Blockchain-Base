@@ -44,16 +44,22 @@ const Sidebar = () => {
     { title: "View Reward", path: "/viewReward", src: <FaMoneyCheckAlt /> },
     { title: "Manage Reward", path: "/manageReward", src: <SiOpenaccess /> },
     { title: "Give Reward", path: "/giveReward", src: <MdAddchart /> },
-    {
-      title: "Reward Redemption",
-      path: "/rewardRedumption",
-      src: <GiMoneyStack />,
-    },
+    // {
+    //   title: "Reward Redemption",
+    //   path: "/rewardRedumption",
+    //   src: <GiMoneyStack />,
+    // },
   ];
   const UserMenu = [
     { title: "Dashboard", path: "/userdashboard", src: <AiFillPieChart /> },
 
     { title: "View Reward", path: "/viewReward", src: <MdAddchart /> },
+    {
+      title: "View Assign Reward",
+      path: "/viewassignReward",
+      src: <SiOpenaccess />,
+    },
+
     {
       title: "Reward History",
       path: "/rewardHistory",
@@ -105,7 +111,7 @@ const Sidebar = () => {
             )}
           </div>
         </Link>
-        {walletAddress === "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3" ? (
+        {walletAddress === "0x5Be663778FA18e311Be14f16a84884A52A1A4078" ? (
           <ul className="pt-6">
             {Menus?.map((menu, index) => (
               <Link to={menu.path} key={index}>

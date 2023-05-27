@@ -12,12 +12,10 @@ import metaMask from "../connectors/metaMask.js";
 const Navbar = () => {
   const [setUser, setSelectedTab] = useState("userDashB");
   const [walletAddress, setWalletAddress] = useState("");
-  const [connected, toggleConnect] = useState(false);
-  const [currAddress, updateAddress] = useState("0x");
-
+  const [connect, setConnect] = useState(false);
   const handlesubmit = async () => {
-    console.log("got here ?");
-    await metaMask(updateAddress);
+    await metaMask();
+    setConnect(true);
   };
 
   const handlechange = () => {
@@ -27,11 +25,9 @@ const Navbar = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const addr = await signer.getAddress();
-    updateAddress(addr);
-
     setWalletAddress(addr);
 
-    if (addr === "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3") {
+    if (addr === "0x6729d34c6c758C2D6DCdAe3d30C54Ec5fCBA3cd0") {
       setSelectedTab("adminDashB");
     }
     console.log("setUser", setUser);
@@ -112,7 +108,7 @@ const Navbar = () => {
                 <a
                   href={
                     walletAddress ===
-                    "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3"
+                    "0x5Be663778FA18e311Be14f16a84884A52A1A4078"
                       ? "/admindashboard"
                       : "/userdashboard"
                   }
@@ -121,46 +117,33 @@ const Navbar = () => {
                     className={
                       setUser === "userDashB"
                         ? "text-white font-weight-bold activeUserDB"
-                        : "btn btn-primary font-weight-bold noTactiveUserDB"
+                        : "text-white font-weight-bold activeUserDB"
                     }
                     type="submit"
                   >
                     {walletAddress ===
-                    "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3"
+                    "0x5Be663778FA18e311Be14f16a84884A52A1A4078"
                       ? "Admin Dashboard"
                       : "User Dashboard"}
                   </div>
                 </a>
-
-                <button
-                  className={
-                    setUser === "adminDashB"
-                      ? "btn btn-primary font-weight-bold hover:bg-sky-400 border-amber-700 activeAdminDB"
-                      : "btn btn-primary font-weight-bold noTactiveAdminDB"
-                  }
-                  onClick={handlechange}
-                >
-                  About Me
-                </button>
-                <button
-                  className="btn btn-primary font-weight-bold"
-                  type="submit"
-                >
-                  User
-                </button>
-                <button
-                  className="btn btn-primary font-weight-bold"
-                  onClick={handlechange}
-                >
-                  Admin
-                </button>
+                <a href="addEmployee">
+                  <div
+                    className={
+                      setUser === "adminDashB"
+                        ? " text-white font-weight-bold border-amber-700  cursor-pointer"
+                        : "  text-white font-weight-bold cursor-pointer"
+                    }
+                    onClick={handlechange}
+                  ></div>
+                </a>
                 <NavLink to="/">
                   <button
                     className="btn text-white hover:bg-sky-400 font-weight-bold ml-4 bg-red-500"
                     type="submit"
                     onClick={handlesubmit}
                   >
-                    {walletAddress.slice(0, 5)} Connect Wallet
+                    {connect ? walletAddress.slice(0, 9) : "Connect Wallet"}
                   </button>
                 </NavLink>
               </form>

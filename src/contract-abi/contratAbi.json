@@ -1,5 +1,5 @@
 {
-  "address": "0x85Bed5963460ddeb4648648ab5BE2B9fc8bfe930",
+  "address": "0x16f9AC82F3082B52001b3Ae9CD4C7be17B208849",
 
   "abi": [
     {
@@ -53,9 +53,14 @@
           "type": "string"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint8",
           "name": "_point",
-          "type": "uint256"
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_difficulty",
+          "type": "uint8"
         },
         {
           "internalType": "string",
@@ -76,9 +81,14 @@
           "type": "string"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint8",
           "name": "_point",
-          "type": "uint256"
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_difficulty",
+          "type": "uint8"
         },
         {
           "internalType": "string",
@@ -126,6 +136,24 @@
       "inputs": [
         {
           "internalType": "address",
+          "name": "_employeeWallet",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_rewardid",
+          "type": "uint8"
+        }
+      ],
+      "name": "GiveReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
           "name": "_wallet",
           "type": "address"
         },
@@ -142,6 +170,11 @@
         {
           "internalType": "string",
           "name": "_dob",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "contact",
           "type": "string"
         },
         {
@@ -173,9 +206,14 @@
           "type": "string"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint8",
           "name": "_point",
-          "type": "uint256"
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_difficulty",
+          "type": "uint8"
         },
         {
           "internalType": "string",
@@ -194,24 +232,19 @@
           "internalType": "address",
           "name": "",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "name": "assignrewards",
       "outputs": [
         {
-          "internalType": "string",
-          "name": "title",
-          "type": "string"
-        },
-        {
           "internalType": "uint256",
-          "name": "point",
+          "name": "assignRewardsarr",
           "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "criteria",
-          "type": "string"
         }
       ],
       "stateMutability": "view",
@@ -267,6 +300,45 @@
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_employeeWallet",
+          "type": "address"
+        }
+      ],
+      "name": "GetAllAssignedRewards",
+      "outputs": [
+        {
+          "internalType": "uint8[]",
+          "name": "rewardid",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "title",
+          "type": "string[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "points",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "difficulty",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "criterias",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "GetAllEmployees",
       "outputs": [
@@ -314,14 +386,24 @@
       "name": "GetAllReward",
       "outputs": [
         {
+          "internalType": "uint8[]",
+          "name": "rewardid",
+          "type": "uint8[]"
+        },
+        {
           "internalType": "string[]",
           "name": "title",
           "type": "string[]"
         },
         {
-          "internalType": "uint256[]",
+          "internalType": "uint8[]",
           "name": "point",
-          "type": "uint256[]"
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "difficulty",
+          "type": "uint8[]"
         },
         {
           "internalType": "string[]",
@@ -384,6 +466,40 @@
     {
       "inputs": [
         {
+          "internalType": "address",
+          "name": "_employeeWallet",
+          "type": "address"
+        }
+      ],
+      "name": "GetGivenRewards",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "title",
+          "type": "string[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "points",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "uint8[]",
+          "name": "difficulty",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "criterias",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "uint256",
           "name": "_id",
           "type": "uint256"
@@ -392,14 +508,24 @@
       "name": "GetReward",
       "outputs": [
         {
+          "internalType": "uint8",
+          "name": "rewardid",
+          "type": "uint8"
+        },
+        {
           "internalType": "string",
           "name": "title",
           "type": "string"
         },
         {
-          "internalType": "uint256",
+          "internalType": "uint8",
           "name": "point",
-          "type": "uint256"
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "difficulty",
+          "type": "uint8"
         },
         {
           "internalType": "string",
@@ -424,13 +550,37 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "rewardCount",
-      "outputs": [
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
         {
           "internalType": "uint256",
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "name": "redeemrewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "redeemRewardarr",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardCount",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
         }
       ],
       "stateMutability": "view",
