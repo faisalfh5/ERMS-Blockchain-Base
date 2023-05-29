@@ -29,7 +29,7 @@ const AddReward = () => {
   return (
     <>
       <div className="dark">
-        <div className="login-box1">
+        <div className="login-box">
           <h2>Add Reward</h2>
           <form>
             <label htmlFor=""> Add Reward Title</label>

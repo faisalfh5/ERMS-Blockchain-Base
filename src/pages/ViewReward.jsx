@@ -23,8 +23,21 @@ const ViewReward = () => {
   useEffect(() => {
     console.log("here 123?");
     const fetch = async () => {
-      await ViewAllReward(setEmployeeData);
+      const tx = await ViewAllReward();
+      console.log("Api data => ", tx);
+      const newData = tx?.rewardid?.map((_, index) => ({
+        criteria: tx.criteria[index],
+        difficulty: tx.difficulty[index],
+        point: tx.point[index],
+        rewardid: tx.rewardid[index],
+        title: tx.title[index],
+      }));
+      console.log("set new data => ", newData);
+
+      setEmployeeData(newData);
+      console.log("Api data => ", employeeData);
     };
+
     fetch();
   }, []);
 
@@ -86,14 +99,13 @@ const ViewReward = () => {
             </tbody>
           ) : (
             <tbody>
-              {employeeData?.map((_, index = 0) => (
+              {employeeData?.map((_, index) => (
                 <tr key={index}>
-                  <td>{employeeData?.rewardid[index]}</td>
-
-                  <td>{employeeData?.title[index]}</td>
-                  <td>{employeeData?.point[index]}</td>
-                  <td>{employeeData?.difficulty[index]}</td>
-                  <td>{employeeData?.criteria[index]}</td>
+                  <td>{employeeData?.[index]?.rewardid}</td>
+                  <td>{employeeData?.[index]?.title}</td>
+                  <td>{employeeData?.[index]?.point}</td>
+                  <td>{employeeData?.[index]?.difficulty}</td>
+                  <td>{employeeData?.[index]?.criteria}</td>
                 </tr>
               ))}
             </tbody>

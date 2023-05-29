@@ -11,6 +11,7 @@ const AddEmployee = () => {
     contact: "",
     age: "",
     address: "",
+    position: "",
   });
 
   const handlechange = (e) => {
@@ -28,7 +29,8 @@ const AddEmployee = () => {
       employeedata?.dob,
       employeedata?.contact,
       employeedata?.age,
-      employeedata?.address
+      employeedata?.address,
+      employeedata?.position
     );
   };
   return (
@@ -109,8 +111,8 @@ const AddEmployee = () => {
           <div className="user-box">
             <input
               type="text"
-              name="lname"
-              value={employeedata?.lname}
+              name="position"
+              value={employeedata?.position}
               required=""
               onChange={handlechange}
             />

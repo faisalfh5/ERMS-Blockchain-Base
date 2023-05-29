@@ -23,12 +23,27 @@ const ViewAssignReward = () => {
     const fetch = async () => {
       const addr = await getAddress();
       setWalletAddress(addr);
-      const tx = await ViewAllAssignReward(walletAddress);
-      setEmployeeData(tx);
     };
-    fetch();
-  });
 
+    fetch();
+    Connect();
+  }, [walletAddress]);
+  const Connect = async () => {
+    console.log("walletAddressConnect", walletAddress);
+    const tx = await ViewAllAssignReward(walletAddress);
+    console.log("Connect tx", tx);
+    const newData = tx?.rewardid?.map((_, index) => ({
+      criteria: tx.criterias[index],
+      difficulty: tx.difficulty[index],
+      point: tx.points[index],
+      rewardid: tx.rewardid[index],
+      title: tx.title[index],
+    }));
+    console.log("set new data => ", newData);
+
+    setEmployeeData(newData);
+    console.log("Api data => ", employeeData);
+  };
   return (
     <>
       <div className="overflowtab">
@@ -44,13 +59,13 @@ const ViewAssignReward = () => {
           </thead>
 
           <tbody>
-            {employeeData?.map((_, index = 0) => (
+            {employeeData?.map((_, index) => (
               <tr key={index}>
-                <td>{employeeData?.rewardid[index]}</td>
-                <td>{employeeData?.title[index]}</td>
-                <td>{employeeData?.points[index]}</td>
-                <td>{employeeData?.difficulty[index]}</td>
-                <td>{employeeData?.criterias[index]}</td>
+                <td>{employeeData?.[index]?.rewardid}</td>
+                <td>{employeeData?.[index]?.title}</td>
+                <td>{employeeData?.[index]?.point}</td>
+                <td>{employeeData?.[index]?.difficulty}</td>
+                <td>{employeeData?.[index]?.criteria}</td>
               </tr>
             ))}
           </tbody>

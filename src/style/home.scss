@@ -145,7 +145,6 @@ a:focus {
       display: none;
     }
   }
-
 }
 
 .header_section {
@@ -260,11 +259,7 @@ a:focus {
         top: 0;
       }
     }
-
-
   }
-
-
 }
 
 /*end header section*/
@@ -275,7 +270,7 @@ a:focus {
   display: flex;
   align-items: center;
   position: relative;
- 
+
   .row {
     align-items: center;
   }
@@ -329,7 +324,6 @@ a:focus {
       width: 100%;
       animation: upDown 5s infinite;
     }
-
   }
 
   @keyframes upDown {
@@ -407,7 +401,8 @@ a:focus {
         text-transform: uppercase;
       }
 
-      p {}
+      p {
+      }
 
       a {
         color: $primary2;
@@ -418,7 +413,6 @@ a:focus {
         }
       }
     }
-
   }
 
   .btn-box {
@@ -474,7 +468,6 @@ a:focus {
 // why section
 
 .why_section {
-
   .box {
     margin-top: 45px;
     display: flex;
@@ -542,10 +535,14 @@ a:focus {
       padding: 35px 0 0 0;
       border-radius: 5px;
       overflow: hidden;
-      transition: all .1s;
+      transition: all 0.1s;
       margin-top: 45px;
       // background-color: #053068;
-      background: linear-gradient(to bottom, lighten($color: $primary2, $amount: 3), lighten($color: $primary2, $amount: 5));
+      background: linear-gradient(
+        to bottom,
+        lighten($color: $primary2, $amount: 3),
+        lighten($color: $primary2, $amount: 5)
+      );
 
       .img-box {
         display: flex;
@@ -557,7 +554,6 @@ a:focus {
           border-radius: 100%;
           border: 5px solid $white;
         }
-
       }
 
       .detail-box {
@@ -568,7 +564,6 @@ a:focus {
           font-weight: 600;
           position: relative;
         }
-
       }
 
       .social_box {
@@ -587,8 +582,6 @@ a:focus {
       }
     }
   }
-
-
 }
 
 /*team section end*/

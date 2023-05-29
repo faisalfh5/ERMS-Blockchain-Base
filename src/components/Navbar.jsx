@@ -13,11 +13,14 @@ const Navbar = () => {
   const [setUser, setSelectedTab] = useState("userDashB");
   const [walletAddress, setWalletAddress] = useState("");
   const [connect, setConnect] = useState(false);
-  const handlesubmit = async () => {
-    await metaMask();
+
+  const handlesubmit = () => {
+    metaMask();
+    // console.log("metmask return", walletAddress);
+    // setWalletAddress(addr);
     setConnect(true);
   };
-
+  console.log("wallet Address outher", walletAddress);
   const handlechange = () => {
     // <AddEmployee />;
   };
@@ -26,11 +29,13 @@ const Navbar = () => {
     const signer = provider.getSigner();
     const addr = await signer.getAddress();
     setWalletAddress(addr);
-
+    if (addr) {
+      setConnect(true);
+    }
     if (addr === "0x6729d34c6c758C2D6DCdAe3d30C54Ec5fCBA3cd0") {
       setSelectedTab("adminDashB");
     }
-    console.log("setUser", setUser);
+    console.log("setAdmin", setUser);
   }
   useEffect(() => {
     // const val = window.ethereum.isConnected();
@@ -108,7 +113,7 @@ const Navbar = () => {
                 <a
                   href={
                     walletAddress ===
-                    "0x5Be663778FA18e311Be14f16a84884A52A1A4078"
+                    "0xe9D47aE0F250ecf9dde1458638885Cd9E2834C86"
                       ? "/admindashboard"
                       : "/userdashboard"
                   }
@@ -122,7 +127,7 @@ const Navbar = () => {
                     type="submit"
                   >
                     {walletAddress ===
-                    "0x5Be663778FA18e311Be14f16a84884A52A1A4078"
+                    "0xe9D47aE0F250ecf9dde1458638885Cd9E2834C86"
                       ? "Admin Dashboard"
                       : "User Dashboard"}
                   </div>
@@ -143,7 +148,9 @@ const Navbar = () => {
                     type="submit"
                     onClick={handlesubmit}
                   >
-                    {connect ? walletAddress.slice(0, 9) : "Connect Wallet"}
+                    {connect === true
+                      ? walletAddress.substring(0, 9) + "..."
+                      : "Connect Wallet"}
                   </button>
                 </NavLink>
               </form>

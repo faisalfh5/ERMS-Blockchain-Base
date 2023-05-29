@@ -1,6 +1,6 @@
 import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import AddEmployee from "./pages/AddEmployee";
 import ManageEmployee from "./pages/ManageEmployee";
 import AssignReward from "./pages/AssignReward";

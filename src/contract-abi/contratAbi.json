@@ -1,5 +1,5 @@
 {
-  "address": "0x16f9AC82F3082B52001b3Ae9CD4C7be17B208849",
+  "address": "0xf27b733F2f1D146E14432eC9eec8f450b611f139",
 
   "abi": [
     {
@@ -37,6 +37,11 @@
         {
           "internalType": "string",
           "name": "_address",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_position",
           "type": "string"
         }
       ],
@@ -186,6 +191,11 @@
           "internalType": "string",
           "name": "_address",
           "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_position",
+          "type": "string"
         }
       ],
       "name": "UpdateEmployee",
@@ -294,6 +304,11 @@
           "internalType": "string",
           "name": "Address",
           "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "position",
+          "type": "string"
         }
       ],
       "stateMutability": "view",
@@ -375,6 +390,11 @@
         {
           "internalType": "string[]",
           "name": "empAddress",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "position",
           "type": "string[]"
         }
       ],
@@ -458,6 +478,11 @@
           "internalType": "string",
           "name": "Address",
           "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "position",
+          "type": "string"
         }
       ],
       "stateMutability": "view",
@@ -473,6 +498,11 @@
       ],
       "name": "GetGivenRewards",
       "outputs": [
+        {
+          "internalType": "uint8[]",
+          "name": "rewardid",
+          "type": "uint8[]"
+        },
         {
           "internalType": "string[]",
           "name": "title",

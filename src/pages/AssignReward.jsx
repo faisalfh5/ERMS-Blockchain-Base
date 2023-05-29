@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../style/rewardRedemption.css";
 import "../style/assignReward.css";
 import { AddAssignReward } from "../Web3/contractFunction";
 
@@ -34,7 +34,7 @@ const AssignReward = () => {
   return (
     <>
       <div className="dark">
-        <div className="login-box1">
+        <div className="login-box">
           <h2>Assign Reward</h2>
           <form>
             <label htmlFor=""> Add Reward Title</label>
@@ -48,6 +48,7 @@ const AssignReward = () => {
               value={rewardData.title}
               onChange={handlechange}
             ></textarea>
+
             <label>Reward Difficulty &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <select
               name="difficulty"

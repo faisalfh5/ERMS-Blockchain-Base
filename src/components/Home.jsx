@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import "../style/home.css";
 import "../style/home.scss";
@@ -24,14 +25,10 @@ const Home = () => {
     <>
       <Navbar />
       {/* header end */}
-      <section className="slider_section ">
-        <div
-          id="customCarousel1"
-          className="carousel slide"
-          data-ride="carousel"
-        >
+      <section className="slider_section">
+        <div id="customCarousel1" data-ride="carousel">
           <div className="carousel-inner">
-            <div className="carousel-item active">
+            <div className="carousel-indicators">
               <div className="container ">
                 <div className="row">
                   <div className="col-md-6 ">
@@ -177,7 +174,7 @@ const Home = () => {
 
       <section className="why_section layout_padding">
         <div className="container">
-          <div className="heading_container heading_center">
+          <div className="heading_container heading_center" id="whychoose">
             <h2 className="font-weight-bold text-3xl">
               Why Choose <span>Us</span>
             </h2>
@@ -430,24 +427,67 @@ const Home = () => {
               </div>
             </div>
             <div className="col-md-6 col-lg-2 mx-auto info_col">
+              <br />
               <div className="info_link_box">
                 <h4>Links</h4>
                 <div className="info_links">
-                  <a className="active" href="index.html">
-                    Home
-                  </a>
-                  <a className="" href="about.html">
-                    About
-                  </a>
-                  <a className="" href="service.html">
+                  <Link
+                    activeClass="active"
+                    to="customCarousel1"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={700}
+                    className="cursor-pointer"
+                  >
+                    <div>Home</div>
+                  </Link>
+
+                  <Link
+                    activeClass="active"
+                    to="abt-usSM"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={700}
+                    className="cursor-pointer"
+                  >
+                    <div>About Us</div>
+                  </Link>
+                  <Link
+                    activeClass="active"
+                    to="HP-Service"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={700}
+                    className="cursor-pointer"
+                  >
                     Services
-                  </a>
-                  <a className="" href="why.html">
+                  </Link>
+                  <Link
+                    activeClass="active"
+                    to="whychoose"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={700}
+                    className="cursor-pointer"
+                  >
                     Why Us
-                  </a>
-                  <a className="" href="team.html">
+                  </Link>
+                  {/* <Link
+                    activeClass="active"
+                    to="whychoose"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={700}
+                    className="cursor-pointer"
+                  >
+
                     Team
-                  </a>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -485,7 +525,7 @@ const Home = () => {
         <div class="container1">
           <p>
             &copy; <span id="displayYear"></span> All Rights Reserved By
-            <a href="">DAPP</a>
+            <a href="/#">DAPP</a>
           </p>
         </div>
       </section>
