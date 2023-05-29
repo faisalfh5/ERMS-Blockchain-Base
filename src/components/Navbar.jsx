@@ -15,8 +15,8 @@ const Navbar = () => {
   const [connect, setConnect] = useState(false);
 
   const handlesubmit = () => {
-    metaMask();
-    // console.log("metmask return", walletAddress);
+    metaMask(setWalletAddress);
+    console.log("metmask return", walletAddress);
     // setWalletAddress(addr);
     setConnect(true);
   };

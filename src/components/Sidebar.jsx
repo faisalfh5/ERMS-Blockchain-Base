@@ -117,7 +117,7 @@ const Sidebar = () => {
             )}
           </div>
         </a>
-        {walletAddress === "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3" ? (
+        {walletAddress === "0xe9D47aE0F250ecf9dde1458638885Cd9E2834C86" ? (
           <ul className="pt-6">
             {Menus?.map((menu, index) => (
               <Link to={menu.path} key={index}>
@@ -172,6 +172,7 @@ const Sidebar = () => {
           mobileMenu={mobileMenu}
         />
       </div>
+
       {/* <div className="sm:hidden">
         {walletAddress === "0xcF708576626e92AadC37b4Cccf3Bd9c60a306Dc3" ? (
           <div
