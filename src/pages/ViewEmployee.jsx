@@ -72,20 +72,7 @@ const viewEmployee = () => {
               );
             })}
 
-            {/* {employeeData?.map((item) => {
-              return (
-                <tr>
-                  {console.log("item", item)}
-                  <td>{item[0]}</td>
-                  <td>{item[index]}</td>
-                  <td>{item?.lname}</td>
-                  <td>{item?.dob}</td>
-                  <td>{item?.contact}</td>
-                  <td>{item?.age}</td>
-                  <td>{item?.empAddress}</td> 
-                </tr>
-              );
-            })} */}
+        
           </table>
         </div>
       </form>

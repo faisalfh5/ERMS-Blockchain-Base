@@ -18,7 +18,7 @@ import client1 from "../assets/images/client1.jpg";
 import client2 from "../assets/images/client2.jpg";
 import ermslogo from "../assets/images/ermslogo.png";
 import Navbar from "./Navbar";
-import FacebookIcon from "@mui/icons-material/Facebook";
+
 const Home = () => {
   return (
     <>
@@ -30,6 +30,7 @@ const Home = () => {
           className="carousel slide"
           data-ride="carousel"
         >
+          
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="container ">

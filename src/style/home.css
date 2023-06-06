@@ -95,7 +95,7 @@
 
 .custom_nav-container .navbar-toggler span::before,
 .custom_nav-container .navbar-toggler span::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   height: 100%;
@@ -111,18 +111,18 @@
   top: 10px;
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded='true'] {
+.custom_nav-container .navbar-toggler[aria-expanded="true"] {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded='true'] span {
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded='true'] span::before,
-.custom_nav-container .navbar-toggler[aria-expanded='true'] span::after {
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   top: 0;
@@ -131,7 +131,6 @@
 /* slider section */
 .slider_section {
   -webkit-box-flex: 1;
-
   -ms-flex: 1;
   flex: 1;
   display: -webkit-box;
@@ -141,7 +140,6 @@
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-
   background-color: rgb(0, 60, 255);
 }
 
@@ -739,11 +737,13 @@
 }
 /*# sourceMappingURL=style.css.map */
 
-.why_section>div, .client_section>div {
+.why_section > div,
+.client_section > div {
   display: block;
 }
 
-.why_section .why_container, .client_section .owl-carousel {
+.why_section .why_container,
+.client_section .owl-carousel {
   display: flex;
   max-width: 90%;
   flex-wrap: wrap;
@@ -754,8 +754,6 @@
 .why_section .why_container .box {
   width: 32%;
 }
-
-
 .client_section .owl-carousel .item {
   width: 49%;
 }
@@ -764,21 +762,22 @@
   margin: 0 0 25px 0;
 }
 
-.info_section  .contact_link_box {
+.info_section .contact_link_box {
   margin: 25px 0 0 0;
 }
 
-.info_section>div {
+.info_section > div {
   max-width: 90%;
   margin: 15px auto 0 auto;
 }
-.footer_section>div {
+.footer_section > div {
   max-width: 90%;
 }
-#HP-Service>div {
+#HP-Service > div {
   max-width: 90%;
   margin: 0 auto;
 }
-.noTactiveAdminDB, .noTactiveUserDB{
+.noTactiveAdminDB,
+.noTactiveUserDB {
   display: none;
 }
