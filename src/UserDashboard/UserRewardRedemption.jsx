@@ -18,7 +18,6 @@ const RewardRedemption = () => {
     return addr;
   }
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log("here 123?");
     const fetch = async () => {

@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import "../style/viewReward.css";
 import { ViewAllGivenReward } from "../Web3/contractFunction";
 
-const RewardRedemption = () => {
+const RewardHistory = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const [walletAddress, setWalletAddress] = useState("");
 
@@ -17,7 +17,6 @@ const RewardRedemption = () => {
     const addr = await signer.getAddress();
     return addr;
   }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log("here 123?");
@@ -55,7 +54,7 @@ const RewardRedemption = () => {
               <th>Reward Points</th>
               <th>Reward Diffulculty</th>
               <th>Criteria</th>
-              <th>Status Redemption</th>
+              <th>History Reword</th>
             </tr>
           </thead>
 
@@ -77,4 +76,4 @@ const RewardRedemption = () => {
   );
 };
 
-export default RewardRedemption;
+export default RewardHistory;

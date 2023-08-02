@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import "../style/viewReward.css";
-import { ViewAllGivenReward } from "../Web3/contractFunction";
+import { ViewAllAssignReward } from "../Web3/contractFunction";
 
-const RewardRedemption = () => {
+const ViewAssignReward = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const [walletAddress, setWalletAddress] = useState("");
 
@@ -18,19 +18,20 @@ const RewardRedemption = () => {
     return addr;
   }
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log("here 123?");
     const fetch = async () => {
       const addr = await getAddress();
       setWalletAddress(addr);
     };
+
     fetch();
     Connect();
   }, [walletAddress]);
-
   const Connect = async () => {
-    const tx = await ViewAllGivenReward(walletAddress);
+    console.log("walletAddressConnect", walletAddress);
+    const tx = await ViewAllAssignReward(walletAddress);
+    console.log("Connect tx", tx);
     const newData = tx?.rewardid?.map((_, index) => ({
       criteria: tx.criterias[index],
       difficulty: tx.difficulty[index],
@@ -43,7 +44,6 @@ const RewardRedemption = () => {
     setEmployeeData(newData);
     console.log("Api data => ", employeeData);
   };
-
   return (
     <>
       <div className="overflowtab">
@@ -53,9 +53,8 @@ const RewardRedemption = () => {
               <th>Reward ID</th>
               <th>Reward Title</th>
               <th>Reward Points</th>
-              <th>Reward Diffulculty</th>
-              <th>Criteria</th>
-              <th>Status Redemption</th>
+              <th>Reward Difficulty</th>
+              <th>Reward Criteria</th>
             </tr>
           </thead>
 
@@ -67,7 +66,6 @@ const RewardRedemption = () => {
                 <td>{employeeData?.[index]?.point}</td>
                 <td>{employeeData?.[index]?.difficulty}</td>
                 <td>{employeeData?.[index]?.criteria}</td>
-                <td>{"Redeem"}</td>
               </tr>
             ))}
           </tbody>
@@ -77,4 +75,4 @@ const RewardRedemption = () => {
   );
 };
 
-export default RewardRedemption;
+export default ViewAssignReward;

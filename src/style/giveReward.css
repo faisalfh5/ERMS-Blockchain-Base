@@ -1,12 +1,25 @@
-.overflowtab {
+.overflowtab2 {
   overflow-x: auto;
-  width: 90%;
-  margin-left: 6%;
+  width: 80%;
+  margin-left: 10%;
 }
 table {
   margin-top: 5%;
   border-collapse: collapse;
   width: 100%;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #5c7cfa;
+  box-shadow: 0 0 5px #5c7cfa;
+}
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 th {

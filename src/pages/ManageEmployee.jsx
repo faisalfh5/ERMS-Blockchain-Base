@@ -1,82 +1,65 @@
-import React, { useState } from 'react';
-import '../style/manageEmployee.css';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SaveIcon from '@mui/icons-material/Save';
+import React, { useState, useEffect } from "react";
+import "../style/manageEmployee.css";
+import "../style/manageReward.css";
+
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
+import { ViewAllEmployee } from "../Web3/contractFunction";
+import { DeleteEmployeeData } from "../Web3/contractFunction";
+import { UpdateEmployeeData } from "../Web3/contractFunction";
 
 const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [employeeData, setEmployeeData] = useState([
-    {
-      id: 1,
-      wallet: 'address',
-      email: 'jill@example.com',
-      password: 'password1',
-      firstName: 'Jill',
-      lastName: 'Smith',
-      dateOfBirth: '1990-01-01',
-      contactNo: '1234567890',
-      age: 30,
-      address: '123 ABC Street',
-    },
-    {
-      id: 2,
-      wallet: 'address',
-      email: 'jill@example.com',
-      password: 'password1',
-      firstName: 'Jill',
-      lastName: 'Smith',
-      dateOfBirth: '1990-01-01',
-      contactNo: '1234567890',
-      age: 30,
-      address: '123 ABC Street',
-    },
-    {
-      id: 3,
-      wallet: 'address',
-      email: 'jill@example.com',
-      password: 'password1',
-      firstName: 'Jill',
-      lastName: 'Smith',
-      dateOfBirth: '1990-01-01',
-      contactNo: '1234567890',
-      age: 30,
-      address: '123 ABC Street',
-    },
-    // Add more employee data objects as needed
-  ]);
+  const [EditEmployee, setEditEmployee] = useState([]);
+  const [employeeData, setEmployeeData] = useState([]);
 
-  const handleEdit = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    const fetch = async () => {
+      const tx = await ViewAllEmployee();
+      console.log("tx", tx);
+      const newData = tx?.wallet?.map((_, index) => ({
+        fname: tx.fname[index],
+        lname: tx.lname[index],
+        dob: tx.dob[index],
+        contact: tx.contact[index],
+        age: tx.age[index],
+        empAddress: tx.empAddress[index],
+        position: tx.position[index],
+        wallet: tx.wallet[index],
+      }));
+      setEmployeeData(newData);
+    };
+    fetch();
+  }, [isEditing]);
+
+  console.log("employeeData", employeeData);
+  const handleEditEmployee = (editemployee) => {
+    console.log("edit data", editemployee);
+    setEditEmployee(editemployee);
     setIsEditing(true);
   };
-
-  const handleSave = (id) => {
-    // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
-    if (employee) {
-      // Perform save/update logic for the employee object
-      console.log('Saving data:', employee);
-    }
-
-    // After saving, reset the editing state
+  const handleUpdate = async () => {
+    console.log("updatebtn", EditEmployee);
+    await UpdateEmployeeData(
+      EditEmployee.wallet,
+      EditEmployee.fname,
+      EditEmployee.lname,
+      EditEmployee.dob,
+      EditEmployee.contact,
+      EditEmployee.age,
+      EditEmployee.empAddress,
+      EditEmployee.position
+    );
     setIsEditing(false);
   };
-
-  const handleFieldChange = (id, fieldName, event) => {
-    // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
-    if (employee) {
-      // Update the specific field value for the employee object
-      employee[fieldName] = event.target.value;
-
-      // Update the state with the modified employee data
-      setEmployeeData([...employeeData]);
-    }
+  const handleDelete = async (DeleteEmployee) => {
+    await DeleteEmployeeData(DeleteEmployee.wallet);
   };
-
   return (
     <>
-      <div className="overflow">
+      <div className="overflow2">
         <table>
           <thead>
             <tr>
@@ -87,105 +70,153 @@ const ManageEmployee = () => {
               <th>Contact No</th>
               <th>Age</th>
               <th>Address</th>
-              <th>Actions</th>
+              <th>Position</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {employeeData.map((employee) => (
-              <tr key={employee.id}>
-                <td>
-                  {isEditing ? (
+            {isEditing ? (
+              <>
+                <tr>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.wallet}
-                      onChange={(event) => handleFieldChange(employee.id, 'wallet', event)}
+                      value={EditEmployee.wallet}
+                      // onChange={(event) =>
+                      //   handleFieldChange(employee.id, "address", event)
+                      // }
                     />
-                  ) : (
-                    employee.wallet
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
+                  </td>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.firstName}
-                      onChange={(event) => handleFieldChange(employee.id, 'firstName', event)}
+                      value={EditEmployee.fname}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          fname: e.target.value,
+                        })
+                      }
                     />
-                  ) : (
-                    employee.firstName
-                  )}
-                </td>
-
-                <td>
-                  {isEditing ? (
+                  </td>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.lastName}
-                      onChange={(event) => handleFieldChange(employee.id, 'lastName', event)}
+                      value={EditEmployee.lname}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          lname: e.target.value,
+                        })
+                      }
                     />
-                  ) : (
-                    employee.lastName
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="date"
-                      value={employee.dateOfBirth}
-                      onChange={(event) => handleFieldChange(employee.id, 'dateOfBirth', event)}
-                    />
-                  ) : (
-                    employee.dateOfBirth
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="tel"
-                      value={employee.contactNo}
-                      onChange={(event) => handleFieldChange(employee.id, 'contactNo', event)}
-                    />
-                  ) : (
-                    employee.contactNo
-                  )}
-                </td>
-
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="number"
-                      value={employee.age}
-                      onChange={(event) => handleFieldChange(employee.id, 'age', event)}
-                    />
-                  ) : (
-                    employee.age
-                  )}
-                </td>
-
-                <td>
-                  {isEditing ? (
+                  </td>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.address}
-                      onChange={(event) => handleFieldChange(employee.id, 'address', event)}
+                      value={EditEmployee.dob}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          dob: e.target.value,
+                        })
+                      }
                     />
-                  ) : (
-                    employee.address
-                  )}
-                </td>
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.contact}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          contact: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.age}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          age: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.empAddress}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          empAddress: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.position}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          position: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    <SaveIcon
+                      className="saveicon mt-3 cursor-pointer"
+                      onClick={handleUpdate}
+                    />
+                  </td>
+                </tr>
+              </>
+            ) : (
+              <>
+                {employeeData?.map((_, index) => (
+                  <tr key={index}>
+                    <td>{employeeData?.[index]?.wallet}</td>
+                    <td>{employeeData?.[index]?.fname}</td>
+                    <td>{employeeData?.[index]?.lname}</td>
+                    <td>{employeeData?.[index]?.dob}</td>
+                    <td>{employeeData?.[index]?.contact}</td>
+                    <td>{employeeData?.[index]?.age}</td>
+                    <td>{employeeData?.[index]?.empAddress}</td>
+                    <td>{employeeData?.[index]?.position}</td>
 
-                <td>
-                  {isEditing ? (
-                    <SaveIcon className="saveicon" onClick={() => handleSave(employee.id)} />
-                  ) : (
-                    <div className="icons">
-                      <EditIcon className="iconedit" onClick={handleEdit} />
-                      <DeleteIcon className="icondelete" />
-                    </div>
-                  )}
-                </td>
-              </tr>
-            ))}
+                    <td>
+                      <div className="icons1">
+                        <EditIcon
+                          className="iconedit cursor-pointer"
+                          onClick={() => handleEditEmployee(_)}
+                        />
+                        <DeleteIcon
+                          className="icondelete cursor-pointer"
+                          style={{}}
+                          onClick={() => handleDelete(_)}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>

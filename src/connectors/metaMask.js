@@ -1,9 +1,9 @@
 import detectEthereumProvider from "@metamask/detect-provider";
 import { toast } from "react-toastify";
 
-const metaMask = async (updateAddress) => {
+const metaMask = async () => {
   const provider = await detectEthereumProvider();
-
+  // let addr;
   if (provider !== window.ethereum) {
     toast("Do you have multiple wallets installed?");
   }
@@ -15,9 +15,10 @@ const metaMask = async (updateAddress) => {
     console.log("wallet install?");
     console.warn("install metamask extension!!");
   }
+
   window.ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
     // Return the address of the wallet
-    updateAddress(res);
+    // setWalletAddress(res);
     console.log(res);
   });
 };

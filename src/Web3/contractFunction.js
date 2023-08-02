@@ -10,7 +10,8 @@ export const addEmployee = async (
   dob,
   contact,
   age,
-  address
+  address,
+  position
 ) => {
   try {
     console.log("wallet", wallet);
@@ -36,7 +37,8 @@ export const addEmployee = async (
       dob,
       contact,
       age,
-      address
+      address,
+      position
     );
 
     await trans.wait();
@@ -47,7 +49,7 @@ export const addEmployee = async (
   }
 };
 
-export const ViewAllEmployee = async (setEmployeeData) => {
+export const ViewAllEmployee = async () => {
   try {
     console.log("idhr a raha ?");
     const mintInstance = await getProviderOrSigner();
@@ -55,7 +57,8 @@ export const ViewAllEmployee = async (setEmployeeData) => {
 
     const trans = await mintInstance.GetAllEmployees();
     console.log("trans", trans);
-    setEmployeeData(trans);
+    // setEmployeeData(trans);
+    return trans;
   } catch (error) {
     console.log("Something went wrong to intetract with smart contract");
   }
@@ -70,6 +73,263 @@ export const ViewEmployee = async (employee, setEmployeeData) => {
     const trans = await mintInstance.GetEmployee(employee);
     console.log("trans", trans);
     setEmployeeData(trans);
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const addReward = async (title, points, difficulty, critaria) => {
+  try {
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    // address wallet;
+    // string fname;
+    // string lname;
+    // string dob;
+
+    const trans = await mintInstance.AddReward(
+      title,
+      points,
+      difficulty,
+      critaria
+    );
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Reward Add successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const ViewAllReward = async () => {
+  try {
+    console.log("idhr a raha ?");
+    const mintInstance = await getProviderOrSigner();
+    console.log("provider", mintInstance);
+
+    const trans = await mintInstance.GetAllReward();
+    console.log("trans", trans);
+    return trans;
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const ViewGetReward = async (employee, setEmployeeData) => {
+  try {
+    const mintInstance = await getProviderOrSigner();
+    console.log("mintInstance", mintInstance);
+
+    const trans = await mintInstance.GetReward(employee);
+    console.log("trans", trans);
+    setEmployeeData(trans);
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const AddAssignReward = async (
+  title,
+  points,
+  difficulty,
+  critaria,
+  empAddress
+) => {
+  try {
+    console.log("title", title);
+    console.log("points ", points);
+    console.log("difficulty", difficulty);
+    console.log("empAddress  ", empAddress);
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    // string memory _title,
+    // uint8 _point,
+    // uint8 _difficulty,
+    // string memory _criteria,
+    // address _employeeWallet
+
+    const trans = await mintInstance.AssignReward(
+      title,
+      points,
+      difficulty,
+      critaria,
+      empAddress
+    );
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Reward Add successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const GiveEmpReward = async (wallet, rewardid) => {
+  try {
+    console.log("wallet", wallet);
+    console.log("rewardid ", rewardid);
+
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    //address _employeeWallet,
+    // uint8 _rewardid
+
+    const trans = await mintInstance.GiveReward(wallet, rewardid);
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Reward Add successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const ViewAllAssignReward = async (wallet) => {
+  try {
+    const mintInstance = await getProviderOrSigner();
+    console.log("mintInstance", mintInstance);
+    console.log("wallet", wallet);
+    const trans = await mintInstance.GetAllAssignedRewards(wallet);
+    console.log("trans", trans);
+    return trans;
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const ViewAllGivenReward = async (wallet) => {
+  try {
+    const mintInstance = await getProviderOrSigner();
+    console.log("mintInstance", mintInstance);
+    console.log("wallet", wallet);
+    const trans = await mintInstance.GetGivenRewards(wallet);
+    console.log("trans", trans);
+    return trans;
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const UpdateEmployeeData = async (
+  wallet,
+  fname,
+  lname,
+  dob,
+  contact,
+  age,
+  address,
+  position
+) => {
+  try {
+    console.log("wallet", wallet);
+    console.log("fname ", fname);
+    console.log("lname  ", lname);
+    console.log("dob ", dob);
+    console.log("contact ", contact);
+    console.log("age ", age);
+    console.log("address", address);
+    console.log("position", position);
+
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    //address _wallet,
+    // string memory _fname,
+    // string memory _lname,
+    // string memory _dob,
+    // string memory contact,
+    // uint8 _age,
+    // string memory _address,
+    // string memory _position
+
+    const trans = await mintInstance.UpdateEmployee(
+      wallet,
+      fname,
+      lname,
+      dob,
+      contact,
+      age,
+      address,
+      position
+    );
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Reward Add successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const UpdateRewardData = async (
+  id,
+  title,
+  point,
+  difficulty,
+  criteria
+) => {
+  try {
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    console.log("id", id);
+    console.log("title", title);
+    console.log("point", point);
+    console.log("difficulty", difficulty);
+    console.log("criteria", criteria);
+    // uint256 _id,
+    //     string memory _title,
+    //     uint8 _point,
+    //     uint8 _difficulty,
+    //     string memory _criteria
+    const trans = await mintInstance.UpdateReward(
+      id,
+      title,
+      point,
+      difficulty,
+      criteria
+    );
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Reward Add successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const DeleteEmployeeData = async (wallet) => {
+  try {
+    console.log("wallet", wallet);
+
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    //address _employeeWallet,
+    // uint8 _rewardid
+
+    const trans = await mintInstance.DeleteEmployee(wallet);
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Delete Employee successfully");
+  } catch (error) {
+    console.log("Something went wrong to intetract with smart contract");
+  }
+};
+
+export const DeleteRewardData = async (rewardid) => {
+  try {
+    console.log("wallet", rewardid);
+
+    const mintInstance = await getProviderOrSigner(true);
+    console.log("mintInstance", mintInstance);
+    //address _employeeWallet,
+    // uint8 _rewardid
+
+    const trans = await mintInstance.DeleteReward(rewardid);
+
+    await trans.wait();
+    // eslint-disable-next-line no-undef
+    toast("Delete Employee successfully");
   } catch (error) {
     console.log("Something went wrong to intetract with smart contract");
   }

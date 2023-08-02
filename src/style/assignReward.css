@@ -23,6 +23,15 @@
 .login-box1 .user-box {
   position: relative;
 }
+.input {
+  text-align: left;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: 14px;
+}
 
 .login-box1 .user-box input {
   width: 100%;

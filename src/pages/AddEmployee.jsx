@@ -11,6 +11,7 @@ const AddEmployee = () => {
     contact: "",
     age: "",
     address: "",
+    position: "",
   });
 
   const handlechange = (e) => {
@@ -28,7 +29,8 @@ const AddEmployee = () => {
       employeedata?.dob,
       employeedata?.contact,
       employeedata?.age,
-      employeedata?.address
+      employeedata?.address,
+      employeedata?.position
     );
   };
   return (
@@ -36,10 +38,6 @@ const AddEmployee = () => {
       <div class="login-box">
         <h2>Add Employee</h2>
         <form>
-          {/* <div className="user-box">
-            <input type="text" name="" required="" />
-            <label>Employee ID</label>
-          </div> */}
           <div className="user-box">
             <input
               type="text"
@@ -110,8 +108,21 @@ const AddEmployee = () => {
             />
             <label>Address</label>
           </div>
+          <div className="user-box">
+            <input
+              type="text"
+              name="position"
+              value={employeedata?.position}
+              required=""
+              onChange={handlechange}
+            />
+            <label>Employee Position</label>
+          </div>
           <button onClick={handlesubmit}>
             <a href="#">
+              <span></span>
+              <span></span>
+              <span></span>
               <span></span>
               Add Employee
             </a>

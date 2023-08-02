@@ -24,10 +24,26 @@ const viewEmployee = () => {
   useEffect(() => {
     console.log("here 123?");
     const fetch = async () => {
-      await ViewAllEmployee(setEmployeeData);
+      const tx = await ViewAllEmployee();
+      console.log("tx", tx);
+      const newData = tx?.wallet?.map((_, index) => ({
+        fname: tx.fname[index],
+        lname: tx.lname[index],
+        dob: tx.dob[index],
+        contact: tx.contact[index],
+        age: tx.age[index],
+        empAddress: tx.empAddress[index],
+        position: tx.position[index],
+        wallet: tx.wallet[index],
+      }));
+      setEmployeeData(newData);
+
+      console.log("Api data => ", tx.wallet);
     };
     fetch();
   }, []);
+
+  console.log("Data ", employeeData);
 
   return (
     <>
@@ -76,6 +92,7 @@ const viewEmployee = () => {
                 <th>Contact No</th>
                 <th>Age</th>
                 <th>Address</th>
+                <th>Employee Position</th>
               </tr>
             </thead>
             {datashow === true && employee.length !== 0 ? (
@@ -88,38 +105,26 @@ const viewEmployee = () => {
                   <td>{singleemployee?.contact}</td>
                   <td>{singleemployee?.age}</td>
                   <td>{singleemployee?.Address}</td>
+                  <td>{singleemployee?.position}</td>
                 </tr>
               </tbody>
             ) : (
               <tbody>
-                {employeeData?.map((_, index = 0) => (
+                {employeeData?.map((_, index) => (
                   <tr key={index}>
-                    <td>{employeeData?.wallet[index]}</td>
-                    <td>{employeeData?.fname[index]}</td>
-                    <td>{employeeData?.lname[index]}</td>
-                    <td>{employeeData?.dob[index]}</td>
-                    <td>{employeeData?.contact[index]}</td>
-                    <td>{employeeData?.age[index]}</td>
-                    <td>{employeeData?.empAddress[index]}</td>
+                    {/* {console.log("items console", employeeData?.wallet)}; */}
+                    <td>{employeeData?.[index]?.wallet}</td>
+                    <td>{employeeData?.[index]?.fname}</td>
+                    <td>{employeeData?.[index]?.lname}</td>
+                    <td>{employeeData?.[index]?.dob}</td>
+                    <td>{employeeData?.[index]?.contact}</td>
+                    <td>{employeeData?.[index]?.age}</td>
+                    <td>{employeeData?.[index]?.empAddress}</td>
+                    <td>{employeeData?.[index]?.position}</td>
                   </tr>
                 ))}
               </tbody>
             )}
-
-            {/* {employeeData?.map((item) => {
-              return (
-                <tr>
-                  {console.log("item", item)}
-                  <td>{item[0]}</td>
-                  <td>{item[index]}</td>
-                  <td>{item?.lname}</td>
-                  <td>{item?.dob}</td>
-                  <td>{item?.contact}</td>
-                  <td>{item?.age}</td>
-                  <td>{item?.empAddress}</td> 
-                </tr>
-              );
-            })} */}
           </table>
         </div>
       </form>

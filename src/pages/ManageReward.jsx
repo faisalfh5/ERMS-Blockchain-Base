@@ -1,64 +1,57 @@
-import React, { useState } from 'react';
-import '../style/manageReward.css';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SaveIcon from '@mui/icons-material/Save';
+import React, { useState, useEffect } from "react";
+import "../style/manageReward.css";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
+import { ViewAllReward } from "../Web3/contractFunction";
+import { UpdateRewardData } from "../Web3/contractFunction";
+import { DeleteRewardData } from "../Web3/contractFunction";
 
 const ManageEmployee = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [employeeData, setEmployeeData] = useState([
-    {
-      id: 1,
-      rewardid: 'id',
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
-    },
-    {
-      id: 2,
-      rewardid: 'id',
+  const [EditEmployee, setEditEmployee] = useState([]);
+  const [employeeData, setEmployeeData] = useState([]);
 
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
-    },
-    {
-      id: 3,
-      rewardid: 'id',
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    const fetch = async () => {
+      const tx = await ViewAllReward();
+      console.log("Api data => ", tx);
+      const newData = tx?.rewardid?.map((_, index) => ({
+        criteria: tx.criteria[index],
+        difficulty: tx.difficulty[index],
+        point: tx.point[index],
+        rewardid: tx.rewardid[index],
+        title: tx.title[index],
+      }));
+      console.log("set new data => ", newData);
 
-      rewardtitle: 'This is your reward title',
-      rewardpreference: '10',
-      rewardcriteria: 'criteria details',
-    },
-    // Add more employee data objects as needed
-  ]);
+      setEmployeeData(newData);
+      console.log("Api data => ", employeeData);
+    };
+    fetch();
+  }, [isEditing]);
 
-  const handleEdit = () => {
+  console.log("employeeData", employeeData);
+  const handleEditEmployee = (editemployee) => {
+    console.log("edit data", editemployee);
+    setEditEmployee(editemployee);
     setIsEditing(true);
   };
-
-  const handleSave = (id) => {
-    // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
-    if (employee) {
-      // Perform save/update logic for the employee object
-      console.log('Saving data:', employee);
-    }
-
-    // After saving, reset the editing state
+  const handleUpdate = async () => {
+    console.log("updatebtn", EditEmployee);
+    await UpdateRewardData(
+      EditEmployee.rewardid,
+      EditEmployee.title,
+      EditEmployee.point,
+      EditEmployee.difficulty,
+      EditEmployee.criteria
+    );
     setIsEditing(false);
   };
 
-  const handleFieldChange = (id, fieldName, event) => {
-    // Find the employee object by id
-    const employee = employeeData.find((employee) => employee.id === id);
-    if (employee) {
-      // Update the specific field value for the employee object
-      employee[fieldName] = event.target.value;
-
-      // Update the state with the modified employee data
-      setEmployeeData([...employeeData]);
-    }
+  const handleDelete = async (DeleteEmployee) => {
+    await DeleteRewardData(DeleteEmployee.rewardid);
   };
 
   return (
@@ -69,75 +62,113 @@ const ManageEmployee = () => {
             <tr>
               <th>Reward ID</th>
               <th>Reward Title</th>
-              <th>Reward Preference</th>
+              <th>Reward Points</th>
+              <th>Reward Difficulty</th>
               <th>Reward Criteria</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {employeeData.map((employee) => (
-              <tr key={employee.id}>
-                <td>
-                  {isEditing ? (
+            {isEditing ? (
+              <>
+                <tr>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.rewardid}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
+                      value={EditEmployee.rewardid}
+                      // onChange={(event) =>
+                      //   handleFieldChange(employee.id, "address", event)
+                      // }
                     />
-                  ) : (
-                    employee.rewardid
-                  )}
-                </td>
-
-                <td>
-                  {isEditing ? (
+                  </td>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.rewardtitle}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
-                    />
-                  ) : (
-                    employee.rewardtitle
-                  )}
-                </td>
-
-                <td>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={employee.rewardpreference}
-                      onChange={(event) =>
-                        handleFieldChange(employee.id, 'rewardpreference', event)
+                      value={EditEmployee.title}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          title: e.target.value,
+                        })
                       }
                     />
-                  ) : (
-                    employee.rewardpreference
-                  )}
-                </td>
-                <td>
-                  {isEditing ? (
+                  </td>
+                  <td>
+                    {" "}
                     <input
                       type="text"
-                      value={employee.rewardcriteria}
-                      onChange={(event) => handleFieldChange(employee.id, 'rewardcriteria', event)}
+                      value={EditEmployee.point}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          point: e.target.value,
+                        })
+                      }
                     />
-                  ) : (
-                    employee.rewardcriteria
-                  )}
-                </td>
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.difficulty}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          difficulty: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="text"
+                      value={EditEmployee.criteria}
+                      onChange={(e) =>
+                        setEditEmployee({
+                          ...EditEmployee,
+                          criteria: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    <SaveIcon
+                      className="saveicon mt-2 cursor-pointer"
+                      onClick={handleUpdate}
+                    />
+                  </td>
+                </tr>
+              </>
+            ) : (
+              <>
+                {employeeData?.map((_, index) => (
+                  <tr key={index}>
+                    <td>{employeeData?.[index]?.rewardid}</td>
+                    <td>{employeeData?.[index]?.title}</td>
+                    <td>{employeeData?.[index]?.point}</td>
+                    <td>{employeeData?.[index]?.difficulty}</td>
+                    <td>{employeeData?.[index]?.criteria}</td>
 
-                <td>
-                  {isEditing ? (
-                    <SaveIcon className="saveicon" onClick={() => handleSave(employee.id)} />
-                  ) : (
-                    <div className="icons1">
-                      <EditIcon className="iconedit" onClick={handleEdit} />
-                      <DeleteIcon className="icondelete" />
-                    </div>
-                  )}
-                </td>
-              </tr>
-            ))}
+                    <td>
+                      <div className="icons1">
+                        <EditIcon
+                          className="iconedit cursor-pointer"
+                          onClick={() => handleEditEmployee(_)}
+                        />
+                        <DeleteIcon
+                          className="icondelete cursor-pointer"
+                          style={{}}
+                          onClick={() => handleDelete(_)}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>
