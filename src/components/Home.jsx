@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 
+
 import "../style/home.css";
 import "../style/home.scss";
 import IMG3 from "../assets/images/img3.png";
@@ -20,6 +21,7 @@ import client2 from "../assets/images/client2.jpg";
 import ermslogo from "../assets/images/ermslogo.png";
 import Navbar from "./Navbar";
 import FacebookIcon from "@mui/icons-material/Facebook";
+
 const Home = () => {
   return (
     <>
@@ -59,8 +61,8 @@ const Home = () => {
       {/* image section end */}
 
       {/* service section  */}
-
       <section id="HP-Service" className="service_section layout_padding">
+
         <div className="service_container">
           <div className="heading_container heading_center">
             <h2 className="font-weight-bold text-3xl">
@@ -125,6 +127,7 @@ const Home = () => {
       {/* about section */}
 
       <section id="abt-usSM" className="about_section layout_padding">
+
         <div className="container">
           <div className="heading_container heading_center">
             {/* <h2>
@@ -160,6 +163,7 @@ const Home = () => {
                   performance, achievements, and contributions. We value the
                   unique skills and talents of each individual, and our platform
                   allows us to recognize and celebrate their exceptional work.
+
                 </p>
                 {/* <a href="">Read More</a> */}
               </div>
@@ -396,6 +400,7 @@ const Home = () => {
       <section className=" info_section layout_padding2">
         <div className="container">
           <div className="row">
+            
             <div className="col-md-6 col-lg-3 info_col">
               <div className="info_detail">
                 <div className="FM-logoS">
@@ -409,6 +414,7 @@ const Home = () => {
                   consensus mechanism, ensuring immutability and transparency of
                   information.
                 </p>
+
 
                 <div className="info_social">
                   <a href="">
@@ -514,6 +520,39 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            {/* <div className="col-md-6 col-lg-3 info_col">
+              <div className="info_contact">
+                <h4>Address</h4>
+                <div className="contact_link_box">
+                  <a href="">
+                    <i className="fa fa-map-marker" aria-hidden="true"></i>
+                    <span>Location</span>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-phone" aria-hidden="true"></i>
+                    <span>Call +01 12123545</span>
+                  </a>
+                  <a href="">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                    <span>abc@gmail.com</span>
+                  </a>
+                </div>
+              </div>
+              <div className="info_social">
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div> */}
           </div>
         </div>
       </section>

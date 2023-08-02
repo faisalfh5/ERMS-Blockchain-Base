@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+
 import "../style/home.css";
 import "../style/home.scss";
 import { NavLink } from "react-router-dom";
@@ -8,6 +9,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 import ermslogo from "../assets/images/ermslogo.png";
 import metaMask from "../connectors/metaMask.js";
+
 
 const Navbar = () => {
   const [setUser, setSelectedTab] = useState("userDashB");
@@ -19,6 +21,10 @@ const Navbar = () => {
     console.log("metmask return", walletAddress);
     // setWalletAddress(addr);
     setConnect(true);
+
+  const handlesubmit = async () => {
+    console.log("got here ?");
+    await metaMask(updateAddress);
   };
   console.log("wallet Address outher", walletAddress);
   const handlechange = () => {
@@ -45,6 +51,16 @@ const Navbar = () => {
     // }
   }, []);
 
+
+  eslint-disable-next-line no-undef
+  useEffect(() => {
+    let val = window.ethereum.isConnected();
+    if (val) {
+      console.log("here");
+      getAddress();
+      toggleConnect(val);
+    }
+  }, []);
   return (
     <header className="header_section">
       <div className="container-fluid">
@@ -82,14 +98,8 @@ const Navbar = () => {
                     Contact Details
                   </div>
                 </Link>
-                <Link
-                  activeClass="active"
-                  to="HP-Service"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={700}
-                >
+
+
                   <div className="text-white font-weight-bold pl-3 pr-3 cursor-pointer">
                     Services
                   </div>
@@ -101,13 +111,15 @@ const Navbar = () => {
                   smooth={true}
                   offset={-70}
                   duration={700}
+                ><button
+                  className="btn btn-primary font-weight-bold"
+                  type="submit"
+                  onClick={handlechange}
                 >
-                  <div
-                    className="text-white font-weight-bold pl-3 pr-3 cursor-pointer"
-                    onClick={handlechange}
-                  >
-                    About Us
-                  </div>
+                  About Me
+
+                </button>
+                
                 </Link>
 
                 <a
@@ -142,6 +154,7 @@ const Navbar = () => {
                     onClick={handlechange}
                   ></div>
                 </a>
+
                 <NavLink to="/">
                   <button
                     className="btn text-white hover:bg-sky-400 font-weight-bold ml-4 bg-red-500"
@@ -151,6 +164,7 @@ const Navbar = () => {
                     {connect === true
                       ? walletAddress.substring(0, 9) + "..."
                       : "Connect Wallet"}
+
                   </button>
                 </NavLink>
               </form>
